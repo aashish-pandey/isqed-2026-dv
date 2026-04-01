@@ -12,3 +12,4 @@ s11(01Apr2026:11:54:26):  /opt/eda/cadence/XCELIUM2309/tools/xcelium/bin/xrun -s
 s12(01Apr2026:11:55:26):  /opt/eda/cadence/XCELIUM2309/tools/xcelium/bin/xrun -sv -uvm -access +rwc -f filelist.f +UVM_TESTNAME=gpio_base_test 
 s13(01Apr2026:11:57:29):  /opt/eda/cadence/XCELIUM2309/tools/xcelium/bin/xrun -sv -uvm -access +rwc -f filelist.f +UVM_TESTNAME=gpio_base_test 
 s14(01Apr2026:12:00:11):  /opt/eda/cadence/XCELIUM2309/tools/xcelium/bin/xrun -sv -uvm -access +rwc -f filelist.f +UVM_TESTNAME=gpio_base_test 
+s15(01Apr2026:12:02:55):  /opt/eda/cadence/XCELIUM2309/tools/xcelium/bin/xrun -sv -uvm -access +rwc -f filelist.f +UVM_TESTNAME=gpio_base_test 

@@ -1,5 +1,5 @@
 xrun: 23.09-s012: (c) Copyright 1995-2024 Cadence Design Systems, Inc.
-TOOL:	xrun	23.09-s012: Started on Apr 01, 2026 at 12:00:11 EDT
+TOOL:	xrun	23.09-s012: Started on Apr 01, 2026 at 12:02:55 EDT
 /opt/eda/cadence/XCELIUM2309/tools/xcelium/bin/xrun
 	-sv
 	-uvm
@@ -26,57 +26,6 @@ TOOL:	xrun	23.09-s012: Started on Apr 01, 2026 at 12:00:11 EDT
 		env/gpio_env.sv
 		tb/gpio_tb_top.sv
 	+UVM_TESTNAME=gpio_base_test
-file: ../../../duts/bastion_gpio/bastion_gpio.sv
-	module worklib.bastion_gpio:sv
-		errors: 0, warnings: 0
-file: agents/tl_ul/tl_ul_if.sv
-	interface worklib.tl_ul_if:sv
-		errors: 0, warnings: 0
-file: agents/gpio/gpio_if.sv
-	interface worklib.gpio_if:sv
-		errors: 0, warnings: 0
-file: tb/gpio_tb_top.sv
-	module worklib.gpio_tb_top:sv
-		errors: 0, warnings: 0
-		Caching library 'worklib' ....... Done
-	Elaborating the design hierarchy:
-	Top level design units:
-		uvm_pkg
-		cdns_uvmapi
-		cdns_assert2uvm_pkg
-		cdns_uvm_pkg
-		$unit_0x591c2ffc
-		dv_common_pkg
-		gpio_tb_top
-	Building instance overlay tables: .................... Done
-	Generating native compiled code:
-		worklib.bastion_gpio:sv <0x3f37992a>
-			streams:  36, words: 15431
-		worklib.gpio_if:sv <0x35e34f60>
-			streams: 1174, words: 994453
-	Building instance specific data structures.
-	Loading native compiled code:     .................... Done
-	Design hierarchy summary:
-		                       Instances  Unique
-		Modules:                       2       2
-		Interfaces:                    2       2
-		Verilog packages:              5       5
-		Registers:                 15200   10499
-		Scalar wires:                 17       -
-		Vectored wires:               19       -
-		Named events:                  4      12
-		Always blocks:                24      24
-		Initial blocks:              325     169
-		Parallel blocks:              26      27
-		Cont. assignments:             1       1
-		Pseudo assignments:           21       -
-		Assertions:                    2       2
-		Covergroup Instances:          0       5
-		Compilation units:             1       1
-		SV Class declarations:       212     325
-		SV Class specializations:    431     431
-		Process Clocks:                6       1
-	Writing initial simulation snapshot: worklib.gpio_tb_top:sv
 Loading snapshot worklib.gpio_tb_top:sv .................... Done
 SVSEED default: 1
 xcelium> source /opt/eda/cadence/XCELIUM2309/tools/xcelium/files/xmsimrc
@@ -128,4 +77,4 @@ UVM_FATAL :    1
 Simulation complete via $finish(1) at time 0 FS + 0
 /opt/eda/cadence/XCELIUM2309/tools/methodology/UVM/CDNS-1.1d/sv/src/base/uvm_report_object.svh:292     $finish;
 xcelium> exit
-TOOL:	xrun	23.09-s012: Exiting on Apr 01, 2026 at 12:00:14 EDT  (total: 00:00:03)
+TOOL:	xrun	23.09-s012: Exiting on Apr 01, 2026 at 12:02:56 EDT  (total: 00:00:01)
