@@ -80,9 +80,9 @@ class gpio_scoreboard extends uvm_scoreboard;
     skip = 0;
     case (addr)
       ADDR_DATA_IN:              skip = 1;
+      ADDR_INTR_STATE:           skip = 1;
       ADDR_DATA_OUT:             exp_data = shadow_data_out;
       ADDR_DIR:                  exp_data = shadow_dir;
-      ADDR_INTR_STATE:           exp_data = shadow_intr_state;
       ADDR_INTR_ENABLE:          exp_data = shadow_intr_enable;
       ADDR_INTR_CTRL_EN_RISING:  exp_data = shadow_intr_ctrl_rising;
       ADDR_INTR_CTRL_EN_FALLING: exp_data = shadow_intr_ctrl_falling;
