@@ -47,7 +47,7 @@ class uart_base_test extends uvm_test;
     wr.start(env.m_tl_agent.sequencer);
 
     // Wait for transmission
-    repeat(300) @(posedge uart_if_inst.clk);
+    #3000
 
     // Read STATUS
     rd = tl_ul_read_seq::type_id::create("rd");
@@ -88,7 +88,7 @@ class uart_base_test extends uvm_test;
     uart_seq.baud_div = 8;
     uart_seq.start(env.m_uart_agent.sequencer);
 
-    repeat(500) @(posedge uart_if_inst.clk);
+    #5000
 
     phase.drop_objection(this);
   endtask
