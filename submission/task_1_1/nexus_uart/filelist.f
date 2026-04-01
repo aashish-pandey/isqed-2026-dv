@@ -43,5 +43,5 @@ env/uart_coverage.sv
 env/uart_env.sv
 
 // // // ── Testbench top ─────────────────
-// tb/uart_base_test.sv
-// tb/uart_tb_top.sv
+tb/uart_base_test.sv
+tb/uart_tb_top.sv
