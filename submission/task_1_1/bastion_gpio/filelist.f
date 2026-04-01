@@ -23,8 +23,8 @@ agents/tl_ul/tl_ul_if.sv
 agents/tl_ul/tl_ul_seq_item.sv
 agents/tl_ul/tl_ul_sequencer.sv
 agents/tl_ul/tl_ul_driver.sv
-// agents/tl_ul/tl_ul_monitor.sv
-// agents/tl_ul/tl_ul_sequences.sv
+agents/tl_ul/tl_ul_monitor.sv
+agents/tl_ul/tl_ul_sequences.sv
 // agents/tl_ul/tl_ul_agent.sv
 
 // // ── GPIO protocol agent ───────────────────────────────────────────────────
