@@ -1,13 +1,15 @@
 import uvm_pkg::*;
 `include "uvm_macros.svh"
 
+`uvm_analysis_imp_decl(_write)
+`uvm_analysis_imp_decl(_read)
+
 class gpio_scoreboard extends uvm_scoreboard;
   `uvm_component_utils(gpio_scoreboard)
 
   uvm_analysis_imp_write #(tl_ul_seq_item, gpio_scoreboard) aimp_write;
   uvm_analysis_imp_read  #(tl_ul_seq_item, gpio_scoreboard) aimp_read;
 
-  // Shadow registers
   bit [31:0] shadow_data_out;
   bit [31:0] shadow_dir;
   bit [31:0] shadow_intr_state;
@@ -17,11 +19,9 @@ class gpio_scoreboard extends uvm_scoreboard;
   bit [31:0] shadow_intr_ctrl_lvlhigh;
   bit [31:0] shadow_intr_ctrl_lvllow;
 
-  // Counters
   int unsigned passed;
   int unsigned failed;
 
-  // Register addresses
   localparam bit [31:0] ADDR_DATA_IN              = 32'h00;
   localparam bit [31:0] ADDR_DATA_OUT             = 32'h04;
   localparam bit [31:0] ADDR_DIR                  = 32'h08;
@@ -45,15 +45,15 @@ class gpio_scoreboard extends uvm_scoreboard;
     aimp_read  = new("aimp_read",  this);
   endfunction
 
-  // Called by monitor on every completed write transaction
   function void write_write(tl_ul_seq_item txn);
-    bit [31:0] addr  = {txn.addr[31:2], 2'b00};
-    bit [31:0] wdata = txn.data;
-
+    bit [31:0] addr;
+    bit [31:0] wdata;
+    addr  = {txn.addr[31:2], 2'b00};
+    wdata = txn.data;
     case (addr)
       ADDR_DATA_OUT:             shadow_data_out = wdata;
       ADDR_DIR:                  shadow_dir = wdata;
-      ADDR_INTR_STATE:           shadow_intr_state = shadow_intr_state & ~wdata;  // W1C
+      ADDR_INTR_STATE:           shadow_intr_state = shadow_intr_state & ~wdata;
       ADDR_INTR_ENABLE:          shadow_intr_enable = wdata;
       ADDR_INTR_TEST:            shadow_intr_state = shadow_intr_state | wdata;
       ADDR_INTR_CTRL_EN_RISING:  shadow_intr_ctrl_rising  = wdata;
@@ -68,18 +68,18 @@ class gpio_scoreboard extends uvm_scoreboard;
         for (int i = 0; i < 16; i++)
           if (wdata[i+16]) shadow_data_out[i+16] = wdata[i];
       end
-      default: ;  // DATA_IN writes silently ignored
+      default: ;
     endcase
   endfunction
 
-  // Called by monitor on every completed read transaction
   function void write_read(tl_ul_seq_item txn);
-    bit [31:0] addr     = {txn.addr[31:2], 2'b00};
+    bit [31:0] addr;
     bit [31:0] exp_data;
-    bit        skip = 0;
-
+    bit        skip;
+    addr = {txn.addr[31:2], 2'b00};
+    skip = 0;
     case (addr)
-      ADDR_DATA_IN:              skip = 1;  // depends on gpio_i synchronizer, skip
+      ADDR_DATA_IN:              skip = 1;
       ADDR_DATA_OUT:             exp_data = shadow_data_out;
       ADDR_DIR:                  exp_data = shadow_dir;
       ADDR_INTR_STATE:           exp_data = shadow_intr_state;
@@ -92,9 +92,7 @@ class gpio_scoreboard extends uvm_scoreboard;
       ADDR_MASKED_OUT_UPPER:     exp_data = {16'h0, shadow_data_out[31:16]};
       default:                   exp_data = 32'h0;
     endcase
-
     if (skip) return;
-
     if (txn.rdata !== exp_data) begin
       failed++;
       `uvm_error("SB_MISMATCH",

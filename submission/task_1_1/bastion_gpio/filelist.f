@@ -38,7 +38,7 @@ agents/gpio/gpio_sequences.sv
 scoreboard/gpio_scoreboard.sv
 
 // // ── Environment ───────────────────────────────────────────────────────────
-env/gpio_coverage.sv
+// env/gpio_coverage.sv
 // env/gpio_env.sv
 
 // // ── Testbench top (includes gpio_if interface definition) ─────────────────
