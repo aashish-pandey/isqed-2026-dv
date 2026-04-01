@@ -1,0 +1,823 @@
+xrun: 23.09-s012: (c) Copyright 1995-2024 Cadence Design Systems, Inc.
+TOOL:	xrun	23.09-s012: Started on Mar 31, 2026 at 23:36:40 EDT
+/opt/eda/cadence/XCELIUM2309/tools/xcelium/bin/xrun
+	-sv
+	-uvm
+	-access +rwc
+	-f filelist.f
+		+define+PROJ_ROOT=../../../..
+		../../../duts/common/dv_common_pkg.sv
+		../../../duts/bastion_gpio/bastion_gpio.sv
+		agents/tl_ul/tl_ul_seq_item.sv
+		agents/tl_ul/tl_ul_sequencer.sv
+		agents/tl_ul/tl_ul_driver.sv
+		agents/tl_ul/tl_ul_monitor.sv
+		agents/tl_ul/tl_ul_sequences.sv
+		agents/tl_ul/tl_ul_agent.sv
+		agents/gpio/gpio_seq_item.sv
+		agents/gpio/gpio_driver.sv
+		agents/gpio/gpio_monitor.sv
+		agents/gpio/gpio_sequences.sv
+		scoreboard/gpio_scoreboard.sv
+		env/gpio_coverage.sv
+		env/gpio_env.sv
+		tb/gpio_tb_top.sv
+	+UVM_TESTNAME=gpio_base_test
+Compiling UVM packages (uvm_pkg.sv cdns_uvm_pkg.sv) using uvmhome location /opt/eda/cadence/XCELIUM2309/tools/methodology/UVM/CDNS-1.1d
+file: ../../../duts/common/dv_common_pkg.sv
+	package worklib.dv_common_pkg:sv
+		errors: 0, warnings: 0
+file: ../../../duts/bastion_gpio/bastion_gpio.sv
+	module worklib.bastion_gpio:sv
+		errors: 0, warnings: 0
+file: agents/tl_ul/tl_ul_seq_item.sv
+class tl_ul_seq_item extends uvm_sequence_item;
+                                             |
+xmvlog: *E,SVNOTY (agents/tl_ul/tl_ul_seq_item.sv,9|45): Syntactically this identifier appears to begin a datatype but it does not refer to a visible datatype in the current scope.
+  `uvm_object_utils_begin(tl_ul_seq_item)
+                        |
+xmvlog: *E,NOTDIR (agents/tl_ul/tl_ul_seq_item.sv,10|24): `uvm_object_utils_begin: not a recognized directive or macro [2.7.3][16.3.1][16(IEEE)].
+  `uvm_object_utils_begin(tl_ul_seq_item)
+                         |
+xmvlog: *E,EXPENC (agents/tl_ul/tl_ul_seq_item.sv,10|25): Expecting the keyword 'endclass'.
+    `uvm_field_int(addr,    UVM_ALL_ON)
+                 |
+xmvlog: *E,NOTDIR (agents/tl_ul/tl_ul_seq_item.sv,11|17): `uvm_field_int: not a recognized directive or macro [2.7.3][16.3.1][16(IEEE)].
+    `uvm_field_int(data,    UVM_ALL_ON)
+                 |
+xmvlog: *E,NOTDIR (agents/tl_ul/tl_ul_seq_item.sv,12|17): `uvm_field_int: not a recognized directive or macro [2.7.3][16.3.1][16(IEEE)].
+    `uvm_field_int(mask,    UVM_ALL_ON)
+                 |
+xmvlog: *E,NOTDIR (agents/tl_ul/tl_ul_seq_item.sv,13|17): `uvm_field_int: not a recognized directive or macro [2.7.3][16.3.1][16(IEEE)].
+    `uvm_field_int(opcode,  UVM_ALL_ON)
+                 |
+xmvlog: *E,NOTDIR (agents/tl_ul/tl_ul_seq_item.sv,14|17): `uvm_field_int: not a recognized directive or macro [2.7.3][16.3.1][16(IEEE)].
+    `uvm_field_int(source,  UVM_ALL_ON)
+                 |
+xmvlog: *E,NOTDIR (agents/tl_ul/tl_ul_seq_item.sv,15|17): `uvm_field_int: not a recognized directive or macro [2.7.3][16.3.1][16(IEEE)].
+    `uvm_field_int(size,    UVM_ALL_ON)
+                 |
+xmvlog: *E,NOTDIR (agents/tl_ul/tl_ul_seq_item.sv,16|17): `uvm_field_int: not a recognized directive or macro [2.7.3][16.3.1][16(IEEE)].
+    `uvm_field_int(delay,   UVM_ALL_ON)
+                 |
+xmvlog: *E,NOTDIR (agents/tl_ul/tl_ul_seq_item.sv,17|17): `uvm_field_int: not a recognized directive or macro [2.7.3][16.3.1][16(IEEE)].
+    `uvm_field_int(rdata,   UVM_ALL_ON)
+                 |
+xmvlog: *E,NOTDIR (agents/tl_ul/tl_ul_seq_item.sv,18|17): `uvm_field_int: not a recognized directive or macro [2.7.3][16.3.1][16(IEEE)].
+    `uvm_field_int(error,   UVM_ALL_ON)
+                 |
+xmvlog: *E,NOTDIR (agents/tl_ul/tl_ul_seq_item.sv,19|17): `uvm_field_int: not a recognized directive or macro [2.7.3][16.3.1][16(IEEE)].
+  `uvm_object_utils_end
+                      |
+xmvlog: *E,NOTDIR (agents/tl_ul/tl_ul_seq_item.sv,20|22): `uvm_object_utils_end: not a recognized directive or macro [2.7.3][16.3.1][16(IEEE)].
+  rand bit [31:0] addr;
+     |
+xmvlog: *E,BADPFW (agents/tl_ul/tl_ul_seq_item.sv,23|5): The modifier 'rand' is only legal within a class declaration.
+  rand bit [31:0] data;
+     |
+xmvlog: *E,BADPFW (agents/tl_ul/tl_ul_seq_item.sv,24|5): The modifier 'rand' is only legal within a class declaration.
+  rand bit [3:0]  mask;
+     |
+xmvlog: *E,BADPFW (agents/tl_ul/tl_ul_seq_item.sv,25|5): The modifier 'rand' is only legal within a class declaration.
+  rand bit [2:0]  opcode;   // 0=PutFullData  1=PutPartialData  4=Get
+     |
+xmvlog: *E,BADPFW (agents/tl_ul/tl_ul_seq_item.sv,26|5): The modifier 'rand' is only legal within a class declaration.
+  rand bit [7:0]  source;
+     |
+xmvlog: *E,BADPFW (agents/tl_ul/tl_ul_seq_item.sv,27|5): The modifier 'rand' is only legal within a class declaration.
+  rand bit [1:0]  size;     // 0=1B  1=2B  2=4B
+     |
+xmvlog: *E,BADPFW (agents/tl_ul/tl_ul_seq_item.sv,28|5): The modifier 'rand' is only legal within a class declaration.
+  rand int unsigned delay;  // idle cycles before driving this transaction
+     |
+xmvlog: *E,BADPFW (agents/tl_ul/tl_ul_seq_item.sv,29|5): The modifier 'rand' is only legal within a class declaration.
+  constraint c_opcode_legal {
+                          |
+xmvlog: *E,CNSCSS (agents/tl_ul/tl_ul_seq_item.sv,36|26): A constraint can only be declared within a class.
+  constraint c_size_word {
+                       |
+xmvlog: *E,CNSCSS (agents/tl_ul/tl_ul_seq_item.sv,40|23): A constraint can only be declared within a class.
+  constraint c_mask_full {
+                       |
+xmvlog: *E,CNSCSS (agents/tl_ul/tl_ul_seq_item.sv,44|23): A constraint can only be declared within a class.
+  constraint c_delay_reasonable {
+                              |
+xmvlog: *E,CNSCSS (agents/tl_ul/tl_ul_seq_item.sv,48|30): A constraint can only be declared within a class.
+  function new(string name = "tl_ul_seq_item");
+             |
+xmvlog: *E,NEWOIC (agents/tl_ul/tl_ul_seq_item.sv,61|13): The class constructor method 'new' is only allowed within a class declaration.
+    super.new(name);
+        |
+xmvlog: *E,CLSSPX (agents/tl_ul/tl_ul_seq_item.sv,62|8): 'super' can only be used within a class scope that derives from a base class.
+endclass
+       |
+xmvlog: *E,MPANDC (agents/tl_ul/tl_ul_seq_item.sv,73|7): expecting the keyword 'module', 'macromodule', 'primitive', 'connectmodule','connect', 'discipline' or 'nature' [A.1].
+file: agents/tl_ul/tl_ul_sequencer.sv
+  `uvm_component_utils(tl_ul_sequencer)
+                     |
+xmvlog: *E,NOTDIR (agents/tl_ul/tl_ul_sequencer.sv,9|21): `uvm_component_utils: not a recognized directive or macro [2.7.3][16.3.1][16(IEEE)].
+file: agents/tl_ul/tl_ul_driver.sv
+  `uvm_component_utils(tl_ul_driver)
+                     |
+xmvlog: *E,NOTDIR (agents/tl_ul/tl_ul_driver.sv,10|21): `uvm_component_utils: not a recognized directive or macro [2.7.3][16.3.1][16(IEEE)].
+  virtual interface tl_ul_if vif;
+                               |
+xmvlog: *E,EXPSMC (agents/tl_ul/tl_ul_driver.sv,13|31): expecting a semicolon (';') [12.1(IEEE)].
+  function new(string name, uvm_component parent);
+             |
+xmvlog: *E,NEWOIC (agents/tl_ul/tl_ul_driver.sv,18|13): The class constructor method 'new' is only allowed within a class declaration.
+  function new(string name, uvm_component parent);
+                                        |
+xmvlog: *E,EXPRPA (agents/tl_ul/tl_ul_driver.sv,18|40): expecting a right parenthesis (')') [A.2.6(IEEE)].
+  function new(string name, uvm_component parent);
+                                        |
+xmvlog: *E,NOIPRT (agents/tl_ul/tl_ul_driver.sv,18|40): Unrecognized declaration 'uvm_component' could be an unsupported keyword, a spelling mistake or missing instance port list '()' [SystemVerilog].
+  function new(string name, uvm_component parent);
+                                        |
+xmvlog: *E,NOTINF (agents/tl_ul/tl_ul_driver.sv,18|40): Interfaces are not allowed within tasks [SystemVerilog].
+  function new(string name, uvm_component parent);
+                                               |
+xmvlog: *E,ILLPDL (agents/tl_ul/tl_ul_driver.sv,18|47): Mixing of ansi & non-ansi style port declaration is not legal.
+  function new(string name, uvm_component parent);
+                                                |
+xmvlog: *E,EXPSMC (agents/tl_ul/tl_ul_driver.sv,18|48): expecting a semicolon (';') [12.3.2(IEEE)].
+    super.new(name, parent);
+        |
+xmvlog: *E,EXPRPA (agents/tl_ul/tl_ul_driver.sv,19|8): expecting a right parenthesis (')') [A.2.6(IEEE)].
+  function void build_phase(uvm_phase phase);
+                                    |
+xmvlog: *E,SVNOTY (agents/tl_ul/tl_ul_driver.sv,22|36): Syntactically this identifier appears to begin a datatype but it does not refer to a visible datatype in the current scope.
+      `uvm_fatal("NO_VIF", {"tl_ul_driver: tl_vif not found in config_db for ", get_full_name()})
+               |
+xmvlog: *E,NOTDIR (agents/tl_ul/tl_ul_driver.sv,25|15): `uvm_fatal: not a recognized directive or macro [2.7.3][16.3.1][16(IEEE)].
+      `uvm_fatal("NO_VIF", {"tl_ul_driver: tl_vif not found in config_db for ", get_full_name()})
+                |
+xmvlog: *E,NOTSTT (agents/tl_ul/tl_ul_driver.sv,25|16): expecting a statement [9(IEEE)].
+      `uvm_fatal("NO_VIF", {"tl_ul_driver: tl_vif not found in config_db for ", get_full_name()})
+                         |
+xmvlog: *E,EXPRPA (agents/tl_ul/tl_ul_driver.sv,25|25): expecting a right parenthesis (')') [9.4(IEEE)].
+      `uvm_fatal("NO_VIF", {"tl_ul_driver: tl_vif not found in config_db for ", get_full_name()})
+                                                                             |
+xmvlog: *E,NOTLVL (agents/tl_ul/tl_ul_driver.sv,25|77): illegal lvalue syntax [9.2(IEEE)].
+      `uvm_fatal("NO_VIF", {"tl_ul_driver: tl_vif not found in config_db for ", get_full_name()})
+                                                                                            |
+xmvlog: *E,NOTLVL (agents/tl_ul/tl_ul_driver.sv,25|92): illegal lvalue syntax [9.2(IEEE)].
+      `uvm_fatal("NO_VIF", {"tl_ul_driver: tl_vif not found in config_db for ", get_full_name()})
+                                                                                                |
+xmvlog: *E,MISEXX (agents/tl_ul/tl_ul_driver.sv,25|96): expecting an '=' or '<=' sign in an assignment [9.2(IEEE)].
+  task run_phase(uvm_phase phase);
+                         |
+xmvlog: *E,SVNOTY (agents/tl_ul/tl_ul_driver.sv,28|25): Syntactically this identifier appears to begin a datatype but it does not refer to a visible datatype in the current scope.
+      tl_ul_seq_item req, rsp;
+                   |
+xmvlog: *E,SVNOTY (agents/tl_ul/tl_ul_driver.sv,35|19): Syntactically this identifier appears to begin a datatype but it does not refer to a visible datatype in the current scope.
+      tl_ul_seq_item req, rsp;
+                        |
+xmvlog: *E,MISEXX (agents/tl_ul/tl_ul_driver.sv,35|24): expecting an '=' or '<=' sign in an assignment [9.2(IEEE)].
+  task drive_transaction(tl_ul_seq_item req, output tl_ul_seq_item rsp);
+                                      |
+xmvlog: *E,SVNOTY (agents/tl_ul/tl_ul_driver.sv,47|38): Syntactically this identifier appears to begin a datatype but it does not refer to a visible datatype in the current scope.
+  task drive_transaction(tl_ul_seq_item req, output tl_ul_seq_item rsp);
+                                                                 |
+xmvlog: *E,SVNOTY (agents/tl_ul/tl_ul_driver.sv,47|65): Syntactically this identifier appears to begin a datatype but it does not refer to a visible datatype in the current scope.
+        `uvm_fatal("TL_A_TIMEOUT",
+                 |
+xmvlog: *E,NOTDIR (agents/tl_ul/tl_ul_driver.sv,69|17): `uvm_fatal: not a recognized directive or macro [2.7.3][16.3.1][16(IEEE)].
+        `uvm_fatal("TL_A_TIMEOUT",
+                  |
+xmvlog: *E,NOTSTT (agents/tl_ul/tl_ul_driver.sv,69|18): expecting a statement [9(IEEE)].
+        `uvm_fatal("TL_A_TIMEOUT",
+                                 |
+xmvlog: *E,EXPRPA (agents/tl_ul/tl_ul_driver.sv,69|33): expecting a right parenthesis (')') [9.4(IEEE)].
+          $sformatf("a_ready not seen within %0d cycles, addr=0x%08h", HANDSHAKE_TIMEOUT, req.addr))
+                  |
+xmvlog: *W,NOSYST (agents/tl_ul/tl_ul_driver.sv,70|18): System function '$sformatf' invoked as a task. Return value will be ignored.
+          $sformatf("a_ready not seen within %0d cycles, addr=0x%08h", HANDSHAKE_TIMEOUT, req.addr))
+                                                                                                   |
+xmvlog: *E,EXPSMC (agents/tl_ul/tl_ul_driver.sv,70|99): expecting a semicolon (';') [10.2.2][14(IEEE)].
+        `uvm_fatal("TL_D_TIMEOUT",
+                 |
+xmvlog: *E,NOTDIR (agents/tl_ul/tl_ul_driver.sv,82|17): `uvm_fatal: not a recognized directive or macro [2.7.3][16.3.1][16(IEEE)].
+        `uvm_fatal("TL_D_TIMEOUT",
+                  |
+xmvlog: *E,NOTSTT (agents/tl_ul/tl_ul_driver.sv,82|18): expecting a statement [9(IEEE)].
+        `uvm_fatal("TL_D_TIMEOUT",
+                                 |
+xmvlog: *E,EXPRPA (agents/tl_ul/tl_ul_driver.sv,82|33): expecting a right parenthesis (')') [9.4(IEEE)].
+          $sformatf("d_valid not seen within %0d cycles, addr=0x%08h", HANDSHAKE_TIMEOUT, req.addr))
+                  |
+xmvlog: *W,NOSYST (agents/tl_ul/tl_ul_driver.sv,83|18): System function '$sformatf' invoked as a task. Return value will be ignored.
+          $sformatf("d_valid not seen within %0d cycles, addr=0x%08h", HANDSHAKE_TIMEOUT, req.addr))
+                                                                                                   |
+xmvlog: *E,EXPSMC (agents/tl_ul/tl_ul_driver.sv,83|99): expecting a semicolon (';') [10.2.2][14(IEEE)].
+endclass
+       |
+xmvlog: *E,EXPENI (agents/tl_ul/tl_ul_driver.sv,108|7): expecting the keyword 'endinterface' [SystemVerilog].
+file: agents/tl_ul/tl_ul_monitor.sv
+  `uvm_component_utils(tl_ul_monitor)
+                     |
+xmvlog: *E,NOTDIR (agents/tl_ul/tl_ul_monitor.sv,10|21): `uvm_component_utils: not a recognized directive or macro [2.7.3][16.3.1][16(IEEE)].
+	interface worklib.tl_ul_if:sv
+		errors: 30, warnings: 2
+  virtual interface tl_ul_if vif;
+                               |
+xmvlog: *E,EXPSMC (agents/tl_ul/tl_ul_monitor.sv,12|31): expecting a semicolon (';') [12.1(IEEE)].
+  uvm_analysis_port #(tl_ul_seq_item) ap_write;
+                                              |
+xmvlog: *E,EXPLPA (agents/tl_ul/tl_ul_monitor.sv,15|46): expecting a left parenthesis ('(') [12.1.2][7.1(IEEE)].
+  uvm_analysis_port #(tl_ul_seq_item) ap_read;
+                                             |
+xmvlog: *E,EXPLPA (agents/tl_ul/tl_ul_monitor.sv,16|45): expecting a left parenthesis ('(') [12.1.2][7.1(IEEE)].
+  function new(string name, uvm_component parent);
+             |
+xmvlog: *E,NEWOIC (agents/tl_ul/tl_ul_monitor.sv,18|13): The class constructor method 'new' is only allowed within a class declaration.
+  function new(string name, uvm_component parent);
+                                        |
+xmvlog: *E,EXPRPA (agents/tl_ul/tl_ul_monitor.sv,18|40): expecting a right parenthesis (')') [A.2.6(IEEE)].
+  function new(string name, uvm_component parent);
+                                        |
+xmvlog: *E,NOIPRT (agents/tl_ul/tl_ul_monitor.sv,18|40): Unrecognized declaration 'uvm_component' could be an unsupported keyword, a spelling mistake or missing instance port list '()' [SystemVerilog].
+  function new(string name, uvm_component parent);
+                                        |
+xmvlog: *E,NOTINF (agents/tl_ul/tl_ul_monitor.sv,18|40): Interfaces are not allowed within tasks [SystemVerilog].
+  function new(string name, uvm_component parent);
+                                               |
+xmvlog: *E,ILLPDL (agents/tl_ul/tl_ul_monitor.sv,18|47): Mixing of ansi & non-ansi style port declaration is not legal.
+  function new(string name, uvm_component parent);
+                                                |
+xmvlog: *E,EXPSMC (agents/tl_ul/tl_ul_monitor.sv,18|48): expecting a semicolon (';') [12.3.2(IEEE)].
+    super.new(name, parent);
+        |
+xmvlog: *E,EXPRPA (agents/tl_ul/tl_ul_monitor.sv,19|8): expecting a right parenthesis (')') [A.2.6(IEEE)].
+  function void build_phase(uvm_phase phase);
+                                    |
+xmvlog: *E,SVNOTY (agents/tl_ul/tl_ul_monitor.sv,22|36): Syntactically this identifier appears to begin a datatype but it does not refer to a visible datatype in the current scope.
+      `uvm_fatal("NO_VIF", {"tl_ul_monitor: tl_vif not found for ", get_full_name()})
+               |
+xmvlog: *E,NOTDIR (agents/tl_ul/tl_ul_monitor.sv,27|15): `uvm_fatal: not a recognized directive or macro [2.7.3][16.3.1][16(IEEE)].
+      `uvm_fatal("NO_VIF", {"tl_ul_monitor: tl_vif not found for ", get_full_name()})
+                |
+xmvlog: *E,NOTSTT (agents/tl_ul/tl_ul_monitor.sv,27|16): expecting a statement [9(IEEE)].
+      `uvm_fatal("NO_VIF", {"tl_ul_monitor: tl_vif not found for ", get_full_name()})
+                         |
+xmvlog: *E,EXPRPA (agents/tl_ul/tl_ul_monitor.sv,27|25): expecting a right parenthesis (')') [9.4(IEEE)].
+      `uvm_fatal("NO_VIF", {"tl_ul_monitor: tl_vif not found for ", get_full_name()})
+                                                                 |
+xmvlog: *E,NOTLVL (agents/tl_ul/tl_ul_monitor.sv,27|65): illegal lvalue syntax [9.2(IEEE)].
+      `uvm_fatal("NO_VIF", {"tl_ul_monitor: tl_vif not found for ", get_full_name()})
+                                                                                |
+xmvlog: *E,NOTLVL (agents/tl_ul/tl_ul_monitor.sv,27|80): illegal lvalue syntax [9.2(IEEE)].
+      `uvm_fatal("NO_VIF", {"tl_ul_monitor: tl_vif not found for ", get_full_name()})
+                                                                                    |
+xmvlog: *E,MISEXX (agents/tl_ul/tl_ul_monitor.sv,27|84): expecting an '=' or '<=' sign in an assignment [9.2(IEEE)].
+  task run_phase(uvm_phase phase);
+                         |
+xmvlog: *E,SVNOTY (agents/tl_ul/tl_ul_monitor.sv,30|25): Syntactically this identifier appears to begin a datatype but it does not refer to a visible datatype in the current scope.
+    tl_ul_seq_item txn;
+                 |
+xmvlog: *E,NOIPRT (agents/tl_ul/tl_ul_monitor.sv,37|17): Unrecognized declaration 'tl_ul_seq_item' could be an unsupported keyword, a spelling mistake or missing instance port list '()' [SystemVerilog].
+    tl_ul_seq_item txn;
+                 |
+xmvlog: *E,NOTINF (agents/tl_ul/tl_ul_monitor.sv,37|17): Interfaces are not allowed within tasks [SystemVerilog].
+    `uvm_info("TL_MON", txn.convert2string(), UVM_HIGH)
+            |
+xmvlog: *E,NOTDIR (agents/tl_ul/tl_ul_monitor.sv,58|12): `uvm_info: not a recognized directive or macro [2.7.3][16.3.1][16(IEEE)].
+    `uvm_info("TL_MON", txn.convert2string(), UVM_HIGH)
+             |
+xmvlog: *E,NOTSTT (agents/tl_ul/tl_ul_monitor.sv,58|13): expecting a statement [9(IEEE)].
+    `uvm_info("TL_MON", txn.convert2string(), UVM_HIGH)
+                                            |
+xmvlog: *E,EXPSMC (agents/tl_ul/tl_ul_monitor.sv,58|44): expecting a semicolon (';') [10.2.2][10.2(IEEE)].
+    `uvm_info("TL_MON", txn.convert2string(), UVM_HIGH)
+                                                      |
+xmvlog: *E,MISEXX (agents/tl_ul/tl_ul_monitor.sv,58|54): expecting an '=' or '<=' sign in an assignment [9.2(IEEE)].
+endclass
+       |
+xmvlog: *E,EXPENI (agents/tl_ul/tl_ul_monitor.sv,66|7): expecting the keyword 'endinterface' [SystemVerilog].
+file: agents/tl_ul/tl_ul_sequences.sv
+  `uvm_object_utils(tl_ul_base_seq)
+                  |
+xmvlog: *E,NOTDIR (agents/tl_ul/tl_ul_sequences.sv,13|18): `uvm_object_utils: not a recognized directive or macro [2.7.3][16.3.1][16(IEEE)].
+  `uvm_object_utils(tl_ul_write_seq)
+                  |
+xmvlog: *E,NOTDIR (agents/tl_ul/tl_ul_sequences.sv,54|18): `uvm_object_utils: not a recognized directive or macro [2.7.3][16.3.1][16(IEEE)].
+  `uvm_object_utils(tl_ul_read_seq)
+                  |
+xmvlog: *E,NOTDIR (agents/tl_ul/tl_ul_sequences.sv,74|18): `uvm_object_utils: not a recognized directive or macro [2.7.3][16.3.1][16(IEEE)].
+  `uvm_object_utils(tl_ul_burst_seq)
+                  |
+xmvlog: *E,NOTDIR (agents/tl_ul/tl_ul_sequences.sv,93|18): `uvm_object_utils: not a recognized directive or macro [2.7.3][16.3.1][16(IEEE)].
+      `uvm_info("BURST_SEQ", $sformatf("READ addr=0x%08h data=0x%08h", addrs[i], rdata), UVM_MEDIUM)
+              |
+xmvlog: *E,NOTDIR (agents/tl_ul/tl_ul_sequences.sv,110|14): `uvm_info: not a recognized directive or macro [2.7.3][16.3.1][16(IEEE)].
+  `uvm_object_utils(tl_ul_random_seq)
+                  |
+xmvlog: *E,NOTDIR (agents/tl_ul/tl_ul_sequences.sv,120|18): `uvm_object_utils: not a recognized directive or macro [2.7.3][16.3.1][16(IEEE)].
+      }) `uvm_error("RAND_FAIL", "Randomization failed in tl_ul_random_seq")
+                  |
+xmvlog: *E,NOTDIR (agents/tl_ul/tl_ul_sequences.sv,140|18): `uvm_error: not a recognized directive or macro [2.7.3][16.3.1][16(IEEE)].
+file: agents/tl_ul/tl_ul_agent.sv
+	interface worklib.tl_ul_if:sv
+		errors: 32, warnings: 0
+	interface worklib.tl_ul_if:sv
+		errors: 0, warnings: 0
+class tl_ul_agent extends uvm_agent;
+                                  |
+xmvlog: *E,SVNOTY (agents/tl_ul/tl_ul_agent.sv,37|34): Syntactically this identifier appears to begin a datatype but it does not refer to a visible datatype in the current scope.
+  `uvm_component_utils(tl_ul_agent)
+                     |
+xmvlog: *E,NOTDIR (agents/tl_ul/tl_ul_agent.sv,38|21): `uvm_component_utils: not a recognized directive or macro [2.7.3][16.3.1][16(IEEE)].
+  `uvm_component_utils(tl_ul_agent)
+                      |
+xmvlog: *E,EXPENC (agents/tl_ul/tl_ul_agent.sv,38|22): Expecting the keyword 'endclass'.
+  function new(string name, uvm_component parent);
+             |
+xmvlog: *E,NEWOIC (agents/tl_ul/tl_ul_agent.sv,48|13): The class constructor method 'new' is only allowed within a class declaration.
+  function new(string name, uvm_component parent);
+                                        |
+xmvlog: *E,EXPRPA (agents/tl_ul/tl_ul_agent.sv,48|40): expecting a right parenthesis (')') [A.2.6(IEEE)].
+  function new(string name, uvm_component parent);
+                                        |
+xmvlog: *E,NOIPRT (agents/tl_ul/tl_ul_agent.sv,48|40): Unrecognized declaration 'uvm_component' could be an unsupported keyword, a spelling mistake or missing instance port list '()' [SystemVerilog].
+  function new(string name, uvm_component parent);
+                                        |
+xmvlog: *E,NOTINF (agents/tl_ul/tl_ul_agent.sv,48|40): Interfaces are not allowed within tasks [SystemVerilog].
+  function new(string name, uvm_component parent);
+                                               |
+xmvlog: *E,ILLPDL (agents/tl_ul/tl_ul_agent.sv,48|47): Mixing of ansi & non-ansi style port declaration is not legal.
+  function new(string name, uvm_component parent);
+                                                |
+xmvlog: *E,EXPSMC (agents/tl_ul/tl_ul_agent.sv,48|48): expecting a semicolon (';') [12.3.2(IEEE)].
+    super.new(name, parent);
+        |
+xmvlog: *E,EXPRPA (agents/tl_ul/tl_ul_agent.sv,49|8): expecting a right parenthesis (')') [A.2.6(IEEE)].
+  function void build_phase(uvm_phase phase);
+                                    |
+xmvlog: *E,SVNOTY (agents/tl_ul/tl_ul_agent.sv,52|36): Syntactically this identifier appears to begin a datatype but it does not refer to a visible datatype in the current scope.
+  function void connect_phase(uvm_phase phase);
+                                      |
+xmvlog: *E,SVNOTY (agents/tl_ul/tl_ul_agent.sv,61|38): Syntactically this identifier appears to begin a datatype but it does not refer to a visible datatype in the current scope.
+endclass
+       |
+xmvlog: *E,MPANDC (agents/tl_ul/tl_ul_agent.sv,70|7): expecting the keyword 'module', 'macromodule', 'primitive', 'connectmodule','connect', 'discipline' or 'nature' [A.1].
+file: agents/gpio/gpio_seq_item.sv
+  `uvm_object_utils_begin(gpio_seq_item)
+                        |
+xmvlog: *E,NOTDIR (agents/gpio/gpio_seq_item.sv,10|24): `uvm_object_utils_begin: not a recognized directive or macro [2.7.3][16.3.1][16(IEEE)].
+    `uvm_field_int(pin_mask,    UVM_ALL_ON)
+                 |
+xmvlog: *E,NOTDIR (agents/gpio/gpio_seq_item.sv,11|17): `uvm_field_int: not a recognized directive or macro [2.7.3][16.3.1][16(IEEE)].
+    `uvm_field_int(pin_values,  UVM_ALL_ON)
+                 |
+xmvlog: *E,NOTDIR (agents/gpio/gpio_seq_item.sv,12|17): `uvm_field_int: not a recognized directive or macro [2.7.3][16.3.1][16(IEEE)].
+    `uvm_field_int(hold_cycles, UVM_ALL_ON)
+                 |
+xmvlog: *E,NOTDIR (agents/gpio/gpio_seq_item.sv,13|17): `uvm_field_int: not a recognized directive or macro [2.7.3][16.3.1][16(IEEE)].
+  `uvm_object_utils_end
+                      |
+xmvlog: *E,NOTDIR (agents/gpio/gpio_seq_item.sv,14|22): `uvm_object_utils_end: not a recognized directive or macro [2.7.3][16.3.1][16(IEEE)].
+file: agents/gpio/gpio_driver.sv
+  `uvm_component_utils(gpio_driver)
+                     |
+xmvlog: *E,NOTDIR (agents/gpio/gpio_driver.sv,11|21): `uvm_component_utils: not a recognized directive or macro [2.7.3][16.3.1][16(IEEE)].
+  virtual interface gpio_if vif;
+                              |
+xmvlog: *E,EXPSMC (agents/gpio/gpio_driver.sv,13|30): expecting a semicolon (';') [12.1(IEEE)].
+  function new(string name, uvm_component parent);
+             |
+xmvlog: *E,NEWOIC (agents/gpio/gpio_driver.sv,15|13): The class constructor method 'new' is only allowed within a class declaration.
+  function new(string name, uvm_component parent);
+                                        |
+xmvlog: *E,EXPRPA (agents/gpio/gpio_driver.sv,15|40): expecting a right parenthesis (')') [A.2.6(IEEE)].
+  function new(string name, uvm_component parent);
+                                        |
+xmvlog: *E,NOIPRT (agents/gpio/gpio_driver.sv,15|40): Unrecognized declaration 'uvm_component' could be an unsupported keyword, a spelling mistake or missing instance port list '()' [SystemVerilog].
+  function new(string name, uvm_component parent);
+                                        |
+xmvlog: *E,NOTINF (agents/gpio/gpio_driver.sv,15|40): Interfaces are not allowed within tasks [SystemVerilog].
+  function new(string name, uvm_component parent);
+                                               |
+xmvlog: *E,ILLPDL (agents/gpio/gpio_driver.sv,15|47): Mixing of ansi & non-ansi style port declaration is not legal.
+  function new(string name, uvm_component parent);
+                                                |
+xmvlog: *E,EXPSMC (agents/gpio/gpio_driver.sv,15|48): expecting a semicolon (';') [12.3.2(IEEE)].
+    super.new(name, parent);
+        |
+xmvlog: *E,EXPRPA (agents/gpio/gpio_driver.sv,16|8): expecting a right parenthesis (')') [A.2.6(IEEE)].
+  function void build_phase(uvm_phase phase);
+                                    |
+xmvlog: *E,SVNOTY (agents/gpio/gpio_driver.sv,19|36): Syntactically this identifier appears to begin a datatype but it does not refer to a visible datatype in the current scope.
+      `uvm_fatal("NO_VIF", {"gpio_driver: gpio_vif not found for ", get_full_name()})
+               |
+xmvlog: *E,NOTDIR (agents/gpio/gpio_driver.sv,22|15): `uvm_fatal: not a recognized directive or macro [2.7.3][16.3.1][16(IEEE)].
+      `uvm_fatal("NO_VIF", {"gpio_driver: gpio_vif not found for ", get_full_name()})
+                |
+xmvlog: *E,NOTSTT (agents/gpio/gpio_driver.sv,22|16): expecting a statement [9(IEEE)].
+      `uvm_fatal("NO_VIF", {"gpio_driver: gpio_vif not found for ", get_full_name()})
+                         |
+xmvlog: *E,EXPRPA (agents/gpio/gpio_driver.sv,22|25): expecting a right parenthesis (')') [9.4(IEEE)].
+      `uvm_fatal("NO_VIF", {"gpio_driver: gpio_vif not found for ", get_full_name()})
+                                                                 |
+xmvlog: *E,NOTLVL (agents/gpio/gpio_driver.sv,22|65): illegal lvalue syntax [9.2(IEEE)].
+      `uvm_fatal("NO_VIF", {"gpio_driver: gpio_vif not found for ", get_full_name()})
+                                                                                |
+xmvlog: *E,NOTLVL (agents/gpio/gpio_driver.sv,22|80): illegal lvalue syntax [9.2(IEEE)].
+      `uvm_fatal("NO_VIF", {"gpio_driver: gpio_vif not found for ", get_full_name()})
+                                                                                    |
+xmvlog: *E,MISEXX (agents/gpio/gpio_driver.sv,22|84): expecting an '=' or '<=' sign in an assignment [9.2(IEEE)].
+  task run_phase(uvm_phase phase);
+                         |
+xmvlog: *E,SVNOTY (agents/gpio/gpio_driver.sv,25|25): Syntactically this identifier appears to begin a datatype but it does not refer to a visible datatype in the current scope.
+      gpio_seq_item req;
+                  |
+xmvlog: *E,SVNOTY (agents/gpio/gpio_driver.sv,32|18): Syntactically this identifier appears to begin a datatype but it does not refer to a visible datatype in the current scope.
+  task drive_pins(gpio_seq_item item);
+                              |
+xmvlog: *E,SVNOTY (agents/gpio/gpio_driver.sv,39|30): Syntactically this identifier appears to begin a datatype but it does not refer to a visible datatype in the current scope.
+endclass
+       |
+xmvlog: *E,EXPENI (agents/gpio/gpio_driver.sv,52|7): expecting the keyword 'endinterface' [SystemVerilog].
+file: agents/gpio/gpio_monitor.sv
+  `uvm_component_utils(gpio_monitor)
+                     |
+xmvlog: *E,NOTDIR (agents/gpio/gpio_monitor.sv,10|21): `uvm_component_utils: not a recognized directive or macro [2.7.3][16.3.1][16(IEEE)].
+	interface worklib.gpio_if:sv
+		errors: 20, warnings: 0
+  virtual interface gpio_if vif;
+                              |
+xmvlog: *E,EXPSMC (agents/gpio/gpio_monitor.sv,12|30): expecting a semicolon (';') [12.1(IEEE)].
+  uvm_analysis_port #(gpio_seq_item) ap_gpio;
+                                            |
+xmvlog: *E,EXPLPA (agents/gpio/gpio_monitor.sv,14|44): expecting a left parenthesis ('(') [12.1.2][7.1(IEEE)].
+  function new(string name, uvm_component parent);
+             |
+xmvlog: *E,NEWOIC (agents/gpio/gpio_monitor.sv,16|13): The class constructor method 'new' is only allowed within a class declaration.
+  function new(string name, uvm_component parent);
+                                        |
+xmvlog: *E,EXPRPA (agents/gpio/gpio_monitor.sv,16|40): expecting a right parenthesis (')') [A.2.6(IEEE)].
+  function new(string name, uvm_component parent);
+                                        |
+xmvlog: *E,NOIPRT (agents/gpio/gpio_monitor.sv,16|40): Unrecognized declaration 'uvm_component' could be an unsupported keyword, a spelling mistake or missing instance port list '()' [SystemVerilog].
+  function new(string name, uvm_component parent);
+                                        |
+xmvlog: *E,NOTINF (agents/gpio/gpio_monitor.sv,16|40): Interfaces are not allowed within tasks [SystemVerilog].
+  function new(string name, uvm_component parent);
+                                               |
+xmvlog: *E,ILLPDL (agents/gpio/gpio_monitor.sv,16|47): Mixing of ansi & non-ansi style port declaration is not legal.
+  function new(string name, uvm_component parent);
+                                                |
+xmvlog: *E,EXPSMC (agents/gpio/gpio_monitor.sv,16|48): expecting a semicolon (';') [12.3.2(IEEE)].
+    super.new(name, parent);
+        |
+xmvlog: *E,EXPRPA (agents/gpio/gpio_monitor.sv,17|8): expecting a right parenthesis (')') [A.2.6(IEEE)].
+  function void build_phase(uvm_phase phase);
+                                    |
+xmvlog: *E,SVNOTY (agents/gpio/gpio_monitor.sv,20|36): Syntactically this identifier appears to begin a datatype but it does not refer to a visible datatype in the current scope.
+      `uvm_fatal("NO_VIF", {"gpio_monitor: gpio_vif not found for ", get_full_name()})
+               |
+xmvlog: *E,NOTDIR (agents/gpio/gpio_monitor.sv,24|15): `uvm_fatal: not a recognized directive or macro [2.7.3][16.3.1][16(IEEE)].
+      `uvm_fatal("NO_VIF", {"gpio_monitor: gpio_vif not found for ", get_full_name()})
+                |
+xmvlog: *E,NOTSTT (agents/gpio/gpio_monitor.sv,24|16): expecting a statement [9(IEEE)].
+      `uvm_fatal("NO_VIF", {"gpio_monitor: gpio_vif not found for ", get_full_name()})
+                         |
+xmvlog: *E,EXPRPA (agents/gpio/gpio_monitor.sv,24|25): expecting a right parenthesis (')') [9.4(IEEE)].
+      `uvm_fatal("NO_VIF", {"gpio_monitor: gpio_vif not found for ", get_full_name()})
+                                                                  |
+xmvlog: *E,NOTLVL (agents/gpio/gpio_monitor.sv,24|66): illegal lvalue syntax [9.2(IEEE)].
+      `uvm_fatal("NO_VIF", {"gpio_monitor: gpio_vif not found for ", get_full_name()})
+                                                                                 |
+xmvlog: *E,NOTLVL (agents/gpio/gpio_monitor.sv,24|81): illegal lvalue syntax [9.2(IEEE)].
+      `uvm_fatal("NO_VIF", {"gpio_monitor: gpio_vif not found for ", get_full_name()})
+                                                                                     |
+xmvlog: *E,MISEXX (agents/gpio/gpio_monitor.sv,24|85): expecting an '=' or '<=' sign in an assignment [9.2(IEEE)].
+  task run_phase(uvm_phase phase);
+                         |
+xmvlog: *E,SVNOTY (agents/gpio/gpio_monitor.sv,27|25): Syntactically this identifier appears to begin a datatype but it does not refer to a visible datatype in the current scope.
+    bit [31:0] prev_gpio_i = 32'h0;
+                           |
+xmvlog: *W,VARIST (agents/gpio/gpio_monitor.sv,28|27): Local static variable with initializer requires 'static' keyword.
+        gpio_seq_item obs;
+                    |
+xmvlog: *E,SVNOTY (agents/gpio/gpio_monitor.sv,35|20): Syntactically this identifier appears to begin a datatype but it does not refer to a visible datatype in the current scope.
+        `uvm_info("GPIO_MON",
+                |
+xmvlog: *E,NOTDIR (agents/gpio/gpio_monitor.sv,41|16): `uvm_info: not a recognized directive or macro [2.7.3][16.3.1][16(IEEE)].
+        `uvm_info("GPIO_MON",
+                 |
+xmvlog: *E,NOTSTT (agents/gpio/gpio_monitor.sv,41|17): expecting a statement [9(IEEE)].
+        `uvm_info("GPIO_MON",
+                            |
+xmvlog: *E,EXPRPA (agents/gpio/gpio_monitor.sv,41|28): expecting a right parenthesis (')') [9.4(IEEE)].
+          $sformatf("gpio_i changed: 0x%08h → 0x%08h | gpio_o=0x%08h oe=0x%08h intr=0x%08h",
+                  |
+xmvlog: *W,NOSYST (agents/gpio/gpio_monitor.sv,42|18): System function '$sformatf' invoked as a task. Return value will be ignored.
+                    prev_gpio_i, vif.gpio_i, vif.gpio_o, vif.gpio_oe_o, vif.intr_o), UVM_MEDIUM)
+                                                                                   |
+xmvlog: *E,EXPSMC (agents/gpio/gpio_monitor.sv,43|83): expecting a semicolon (';') [10.2.2][14(IEEE)].
+                    prev_gpio_i, vif.gpio_i, vif.gpio_o, vif.gpio_oe_o, vif.intr_o), UVM_MEDIUM)
+                                                                                               |
+xmvlog: *E,MISEXX (agents/gpio/gpio_monitor.sv,43|95): expecting an '=' or '<=' sign in an assignment [9.2(IEEE)].
+endclass
+       |
+xmvlog: *E,EXPENI (agents/gpio/gpio_monitor.sv,49|7): expecting the keyword 'endinterface' [SystemVerilog].
+file: agents/gpio/gpio_sequences.sv
+  `uvm_object_utils(gpio_base_seq)
+                  |
+xmvlog: *E,NOTDIR (agents/gpio/gpio_sequences.sv,11|18): `uvm_object_utils: not a recognized directive or macro [2.7.3][16.3.1][16(IEEE)].
+  `uvm_object_utils(gpio_toggle_seq)
+                  |
+xmvlog: *E,NOTDIR (agents/gpio/gpio_sequences.sv,43|18): `uvm_object_utils: not a recognized directive or macro [2.7.3][16.3.1][16(IEEE)].
+  `uvm_object_utils(gpio_random_seq)
+                  |
+xmvlog: *E,NOTDIR (agents/gpio/gpio_sequences.sv,79|18): `uvm_object_utils: not a recognized directive or macro [2.7.3][16.3.1][16(IEEE)].
+        `uvm_error("RAND_FAIL", "gpio_seq_item randomization failed")
+                 |
+xmvlog: *E,NOTDIR (agents/gpio/gpio_sequences.sv,92|17): `uvm_error: not a recognized directive or macro [2.7.3][16.3.1][16(IEEE)].
+  `uvm_component_utils(gpio_agent)
+                     |
+xmvlog: *E,NOTDIR (agents/gpio/gpio_sequences.sv,109|21): `uvm_component_utils: not a recognized directive or macro [2.7.3][16.3.1][16(IEEE)].
+file: scoreboard/gpio_scoreboard.sv
+  `uvm_component_utils(gpio_scoreboard)
+                     |
+xmvlog: *E,NOTDIR (scoreboard/gpio_scoreboard.sv,12|21): `uvm_component_utils: not a recognized directive or macro [2.7.3][16.3.1][16(IEEE)].
+	interface worklib.gpio_if:sv
+		errors: 30, warnings: 2
+  virtual interface tl_ul_if tl_vif;
+                           |
+xmvlog: *W,RECOME (scoreboard/gpio_scoreboard.sv,19|27): recompiling design unit worklib.tl_ul_if:sv.
+	First compiled from line 12 of agents/tl_ul/tl_ul_agent.sv.
+  virtual interface tl_ul_if tl_vif;
+                                  |
+xmvlog: *E,EXPSMC (scoreboard/gpio_scoreboard.sv,19|34): expecting a semicolon (';') [12.1(IEEE)].
+  function new(string name, uvm_component parent);
+             |
+xmvlog: *E,NEWOIC (scoreboard/gpio_scoreboard.sv,50|13): The class constructor method 'new' is only allowed within a class declaration.
+  function new(string name, uvm_component parent);
+                                        |
+xmvlog: *E,EXPRPA (scoreboard/gpio_scoreboard.sv,50|40): expecting a right parenthesis (')') [A.2.6(IEEE)].
+  function new(string name, uvm_component parent);
+                                        |
+xmvlog: *E,NOIPRT (scoreboard/gpio_scoreboard.sv,50|40): Unrecognized declaration 'uvm_component' could be an unsupported keyword, a spelling mistake or missing instance port list '()' [SystemVerilog].
+  function new(string name, uvm_component parent);
+                                        |
+xmvlog: *E,NOTINF (scoreboard/gpio_scoreboard.sv,50|40): Interfaces are not allowed within tasks [SystemVerilog].
+  function new(string name, uvm_component parent);
+                                               |
+xmvlog: *E,ILLPDL (scoreboard/gpio_scoreboard.sv,50|47): Mixing of ansi & non-ansi style port declaration is not legal.
+  function new(string name, uvm_component parent);
+                                                |
+xmvlog: *E,EXPSMC (scoreboard/gpio_scoreboard.sv,50|48): expecting a semicolon (';') [12.3.2(IEEE)].
+    super.new(name, parent);
+        |
+xmvlog: *E,EXPRPA (scoreboard/gpio_scoreboard.sv,51|8): expecting a right parenthesis (')') [A.2.6(IEEE)].
+  function void build_phase(uvm_phase phase);
+                                    |
+xmvlog: *E,SVNOTY (scoreboard/gpio_scoreboard.sv,54|36): Syntactically this identifier appears to begin a datatype but it does not refer to a visible datatype in the current scope.
+      `uvm_fatal("NO_VIF", "gpio_scoreboard: tl_vif not found")
+               |
+xmvlog: *E,NOTDIR (scoreboard/gpio_scoreboard.sv,59|15): `uvm_fatal: not a recognized directive or macro [2.7.3][16.3.1][16(IEEE)].
+      `uvm_fatal("NO_VIF", "gpio_scoreboard: tl_vif not found")
+                |
+xmvlog: *E,NOTSTT (scoreboard/gpio_scoreboard.sv,59|16): expecting a statement [9(IEEE)].
+      `uvm_fatal("NO_VIF", "gpio_scoreboard: tl_vif not found")
+                         |
+xmvlog: *E,EXPRPA (scoreboard/gpio_scoreboard.sv,59|25): expecting a right parenthesis (')') [9.4(IEEE)].
+      `uvm_fatal("NO_VIF", "gpio_scoreboard: gpio_vif not found")
+               |
+xmvlog: *E,NOTDIR (scoreboard/gpio_scoreboard.sv,61|15): `uvm_fatal: not a recognized directive or macro [2.7.3][16.3.1][16(IEEE)].
+      `uvm_fatal("NO_VIF", "gpio_scoreboard: gpio_vif not found")
+                |
+xmvlog: *E,NOTSTT (scoreboard/gpio_scoreboard.sv,61|16): expecting a statement [9(IEEE)].
+      `uvm_fatal("NO_VIF", "gpio_scoreboard: gpio_vif not found")
+                         |
+xmvlog: *E,EXPRPA (scoreboard/gpio_scoreboard.sv,61|25): expecting a right parenthesis (')') [9.4(IEEE)].
+  endfunction
+            |
+xmvlog: *E,NOTSTT (scoreboard/gpio_scoreboard.sv,62|12): expecting a statement [9(IEEE)].
+  function void write_write(tl_ul_seq_item txn);
+                                         |
+xmvlog: *E,SVNOTY (scoreboard/gpio_scoreboard.sv,65|41): Syntactically this identifier appears to begin a datatype but it does not refer to a visible datatype in the current scope.
+    logic [31:0] addr  = {txn.addr[31:2], 2'b00};
+                       |
+xmvlog: *W,VARIST (scoreboard/gpio_scoreboard.sv,66|23): Local static variable with initializer requires 'static' keyword.
+    logic [31:0] wdata = txn.data;
+                       |
+xmvlog: *W,VARIST (scoreboard/gpio_scoreboard.sv,67|23): Local static variable with initializer requires 'static' keyword.
+      `uvm_error("SB_ERR", $sformatf("Unexpected bus error on WRITE addr=0x%08h", addr))
+               |
+xmvlog: *E,NOTDIR (scoreboard/gpio_scoreboard.sv,108|15): `uvm_error: not a recognized directive or macro [2.7.3][16.3.1][16(IEEE)].
+      `uvm_error("SB_ERR", $sformatf("Unexpected bus error on WRITE addr=0x%08h", addr))
+                |
+xmvlog: *E,NOTSTT (scoreboard/gpio_scoreboard.sv,108|16): expecting a statement [9(IEEE)].
+      `uvm_error("SB_ERR", $sformatf("Unexpected bus error on WRITE addr=0x%08h", addr))
+                         |
+xmvlog: *E,EXPRPA (scoreboard/gpio_scoreboard.sv,108|25): expecting a right parenthesis (')') [9.4(IEEE)].
+      `uvm_error("SB_ERR", $sformatf("Unexpected bus error on WRITE addr=0x%08h", addr))
+                                   |
+xmvlog: *W,NOSYST (scoreboard/gpio_scoreboard.sv,108|35): System function '$sformatf' invoked as a task. Return value will be ignored.
+      `uvm_error("SB_ERR", $sformatf("Unexpected bus error on WRITE addr=0x%08h", addr))
+                                                                                       |
+xmvlog: *E,EXPSMC (scoreboard/gpio_scoreboard.sv,108|87): expecting a semicolon (';') [10.2.2][14(IEEE)].
+  function void write_read(tl_ul_seq_item txn);
+                                        |
+xmvlog: *E,SVNOTY (scoreboard/gpio_scoreboard.sv,112|40): Syntactically this identifier appears to begin a datatype but it does not refer to a visible datatype in the current scope.
+    logic [31:0] addr     = {txn.addr[31:2], 2'b00};
+                          |
+xmvlog: *W,VARIST (scoreboard/gpio_scoreboard.sv,113|26): Local static variable with initializer requires 'static' keyword.
+    logic [31:0] dut_data = txn.rdata;
+                          |
+xmvlog: *W,VARIST (scoreboard/gpio_scoreboard.sv,114|26): Local static variable with initializer requires 'static' keyword.
+          `uvm_error("SB_ERR", "Unexpected error on DATA_IN read")
+                   |
+xmvlog: *E,NOTDIR (scoreboard/gpio_scoreboard.sv,135|19): `uvm_error: not a recognized directive or macro [2.7.3][16.3.1][16(IEEE)].
+          `uvm_error("SB_ERR", "Unexpected error on DATA_IN read")
+                    |
+xmvlog: *E,NOTSTT (scoreboard/gpio_scoreboard.sv,135|20): expecting a statement [9(IEEE)].
+          `uvm_error("SB_ERR", "Unexpected error on DATA_IN read")
+                             |
+xmvlog: *E,EXPRPA (scoreboard/gpio_scoreboard.sv,135|29): expecting a right parenthesis (')') [9.4(IEEE)].
+          `uvm_error("SB_ERR", "Unexpected error on DATA_IN read")
+                                                                 |
+xmvlog: *E,CSISYX (scoreboard/gpio_scoreboard.sv,135|65): case item syntax error [9.5(IEEE)].
+      default: begin
+            |
+xmvlog: *E,EXPENF (scoreboard/gpio_scoreboard.sv,138|12): expecting the keyword 'endfunction' [10.3.1(IEEE)].
+      `uvm_error("SB_MISMATCH",
+               |
+xmvlog: *E,NOTDIR (scoreboard/gpio_scoreboard.sv,145|15): `uvm_error: not a recognized directive or macro [2.7.3][16.3.1][16(IEEE)].
+      `uvm_info("SB_OK",
+              |
+xmvlog: *E,NOTDIR (scoreboard/gpio_scoreboard.sv,149|14): `uvm_info: not a recognized directive or macro [2.7.3][16.3.1][16(IEEE)].
+      `uvm_error("SB_GPIO_O",
+               |
+xmvlog: *E,NOTDIR (scoreboard/gpio_scoreboard.sv,159|15): `uvm_error: not a recognized directive or macro [2.7.3][16.3.1][16(IEEE)].
+      `uvm_error("SB_GPIO_O",
+                |
+xmvlog: *E,NOTSTT (scoreboard/gpio_scoreboard.sv,159|16): expecting a statement [9(IEEE)].
+      `uvm_error("SB_GPIO_O",
+                            |
+xmvlog: *E,EXPRPA (scoreboard/gpio_scoreboard.sv,159|28): expecting a right parenthesis (')') [9.4(IEEE)].
+        $sformatf("gpio_o mismatch: DUT=0x%08h EXP=0x%08h",
+                |
+xmvlog: *W,NOSYST (scoreboard/gpio_scoreboard.sv,160|16): System function '$sformatf' invoked as a task. Return value will be ignored.
+                  gpio_vif.gpio_o, shadow_data_out))
+                                                   |
+xmvlog: *E,EXPSMC (scoreboard/gpio_scoreboard.sv,161|51): expecting a semicolon (';') [10.2.2][14(IEEE)].
+    end else begin
+           |
+xmvlog: *E,EXPENF (scoreboard/gpio_scoreboard.sv,162|11): expecting the keyword 'endfunction' [10.3.1(IEEE)].
+      `uvm_error("SB_GPIO_OE",
+               |
+xmvlog: *E,NOTDIR (scoreboard/gpio_scoreboard.sv,169|15): `uvm_error: not a recognized directive or macro [2.7.3][16.3.1][16(IEEE)].
+  function void report_phase(uvm_phase phase);
+                                     |
+xmvlog: *E,SVNOTY (scoreboard/gpio_scoreboard.sv,177|37): Syntactically this identifier appears to begin a datatype but it does not refer to a visible datatype in the current scope.
+    `uvm_info("SB_REPORT",
+            |
+xmvlog: *E,NOTDIR (scoreboard/gpio_scoreboard.sv,178|12): `uvm_info: not a recognized directive or macro [2.7.3][16.3.1][16(IEEE)].
+    `uvm_info("SB_REPORT",
+             |
+xmvlog: *E,NOTSTT (scoreboard/gpio_scoreboard.sv,178|13): expecting a statement [9(IEEE)].
+      $sformatf("GPIO Scoreboard: %0d passed, %0d failed",
+              |
+xmvlog: *W,NOSYST (scoreboard/gpio_scoreboard.sv,179|14): System function '$sformatf' invoked as a task. Return value will be ignored.
+                checks_passed, checks_failed), UVM_NONE)
+                                             |
+xmvlog: *E,EXPSMC (scoreboard/gpio_scoreboard.sv,180|45): expecting a semicolon (';') [10.2.2][14(IEEE)].
+                checks_passed, checks_failed), UVM_NONE)
+                                                       |
+xmvlog: *E,MISEXX (scoreboard/gpio_scoreboard.sv,180|55): expecting an '=' or '<=' sign in an assignment [9.2(IEEE)].
+      `uvm_error("SB_FAIL", "Scoreboard detected mismatches — see above")
+               |
+xmvlog: *E,NOTDIR (scoreboard/gpio_scoreboard.sv,182|15): `uvm_error: not a recognized directive or macro [2.7.3][16.3.1][16(IEEE)].
+      `uvm_error("SB_FAIL", "Scoreboard detected mismatches — see above")
+                |
+xmvlog: *E,NOTSTT (scoreboard/gpio_scoreboard.sv,182|16): expecting a statement [9(IEEE)].
+      `uvm_error("SB_FAIL", "Scoreboard detected mismatches — see above")
+                          |
+xmvlog: *E,EXPRPA (scoreboard/gpio_scoreboard.sv,182|26): expecting a right parenthesis (')') [9.4(IEEE)].
+  endfunction
+            |
+xmvlog: *E,NOTSTT (scoreboard/gpio_scoreboard.sv,183|12): expecting a statement [9(IEEE)].
+file: env/gpio_coverage.sv
+class gpio_coverage extends uvm_subscriber #(tl_ul_seq_item);
+                                         |
+xmvlog: *E,SVNOTY (env/gpio_coverage.sv,10|41): Syntactically this identifier appears to begin a datatype but it does not refer to a visible datatype in the current scope.
+  `uvm_component_utils(gpio_coverage)
+                     |
+xmvlog: *E,NOTDIR (env/gpio_coverage.sv,11|21): `uvm_component_utils: not a recognized directive or macro [2.7.3][16.3.1][16(IEEE)].
+  `uvm_component_utils(gpio_coverage)
+                      |
+xmvlog: *E,EXPENC (env/gpio_coverage.sv,11|22): Expecting the keyword 'endclass'.
+  function new(string name, uvm_component parent);
+             |
+xmvlog: *E,NEWOIC (env/gpio_coverage.sv,105|13): The class constructor method 'new' is only allowed within a class declaration.
+  function new(string name, uvm_component parent);
+                                        |
+xmvlog: *E,EXPRPA (env/gpio_coverage.sv,105|40): expecting a right parenthesis (')') [A.2.6(IEEE)].
+  function new(string name, uvm_component parent);
+                                        |
+xmvlog: *E,NOIPRT (env/gpio_coverage.sv,105|40): Unrecognized declaration 'uvm_component' could be an unsupported keyword, a spelling mistake or missing instance port list '()' [SystemVerilog].
+  function new(string name, uvm_component parent);
+                                        |
+xmvlog: *E,NOTINF (env/gpio_coverage.sv,105|40): Interfaces are not allowed within tasks [SystemVerilog].
+  function new(string name, uvm_component parent);
+                                               |
+xmvlog: *E,ILLPDL (env/gpio_coverage.sv,105|47): Mixing of ansi & non-ansi style port declaration is not legal.
+  function new(string name, uvm_component parent);
+                                                |
+xmvlog: *E,EXPSMC (env/gpio_coverage.sv,105|48): expecting a semicolon (';') [12.3.2(IEEE)].
+    super.new(name, parent);
+        |
+xmvlog: *E,EXPRPA (env/gpio_coverage.sv,106|8): expecting a right parenthesis (')') [A.2.6(IEEE)].
+    cg_csr_access   = new();
+                    |
+xmvlog: *E,ECGINM (env/gpio_coverage.sv,107|20): The covergroup instance name is not specified.
+  function void build_phase(uvm_phase phase);
+         |
+xmvlog: *E,DECINM (env/gpio_coverage.sv,116|9): Declaration is only valid within a module, interface, or a program block.
+  function void build_phase(uvm_phase phase);
+                                    |
+xmvlog: *E,SVNOTY (env/gpio_coverage.sv,116|36): Syntactically this identifier appears to begin a datatype but it does not refer to a visible datatype in the current scope.
+      `uvm_fatal("NO_VIF", "gpio_coverage: gpio_vif not found")
+               |
+xmvlog: *E,NOTDIR (env/gpio_coverage.sv,119|15): `uvm_fatal: not a recognized directive or macro [2.7.3][16.3.1][16(IEEE)].
+      `uvm_fatal("NO_VIF", "gpio_coverage: gpio_vif not found")
+                |
+xmvlog: *E,NOTSTT (env/gpio_coverage.sv,119|16): expecting a statement [9(IEEE)].
+      `uvm_fatal("NO_VIF", "gpio_coverage: gpio_vif not found")
+                         |
+xmvlog: *E,EXPRPA (env/gpio_coverage.sv,119|25): expecting a right parenthesis (')') [9.4(IEEE)].
+  endfunction
+            |
+xmvlog: *E,NOTSTT (env/gpio_coverage.sv,120|12): expecting a statement [9(IEEE)].
+  function void write(tl_ul_seq_item t);
+         |
+xmvlog: *E,DECINM (env/gpio_coverage.sv,122|9): Declaration is only valid within a module, interface, or a program block.
+  function void write(tl_ul_seq_item t);
+                                   |
+xmvlog: *E,SVNOTY (env/gpio_coverage.sv,122|35): Syntactically this identifier appears to begin a datatype but it does not refer to a visible datatype in the current scope.
+endclass
+       |
+xmvlog: *E,NOTSTT (env/gpio_coverage.sv,141|7): expecting a statement [9(IEEE)].
+file: env/gpio_env.sv
+class gpio_env extends uvm_env;
+                             |
+xmvlog: *E,SVNOTY (env/gpio_env.sv,9|29): Syntactically this identifier appears to begin a datatype but it does not refer to a visible datatype in the current scope.
+  `uvm_component_utils(gpio_env)
+                     |
+xmvlog: *E,NOTDIR (env/gpio_env.sv,10|21): `uvm_component_utils: not a recognized directive or macro [2.7.3][16.3.1][16(IEEE)].
+  `uvm_component_utils(gpio_env)
+                      |
+xmvlog: *E,EXPENC (env/gpio_env.sv,10|22): Expecting the keyword 'endclass'.
+  function new(string name, uvm_component parent);
+             |
+xmvlog: *E,NEWOIC (env/gpio_env.sv,18|13): The class constructor method 'new' is only allowed within a class declaration.
+  function new(string name, uvm_component parent);
+                                        |
+xmvlog: *E,EXPRPA (env/gpio_env.sv,18|40): expecting a right parenthesis (')') [A.2.6(IEEE)].
+  function new(string name, uvm_component parent);
+                                        |
+xmvlog: *E,NOIPRT (env/gpio_env.sv,18|40): Unrecognized declaration 'uvm_component' could be an unsupported keyword, a spelling mistake or missing instance port list '()' [SystemVerilog].
+  function new(string name, uvm_component parent);
+                                        |
+xmvlog: *E,NOTINF (env/gpio_env.sv,18|40): Interfaces are not allowed within tasks [SystemVerilog].
+  function new(string name, uvm_component parent);
+                                               |
+xmvlog: *E,ILLPDL (env/gpio_env.sv,18|47): Mixing of ansi & non-ansi style port declaration is not legal.
+  function new(string name, uvm_component parent);
+                                                |
+xmvlog: *E,EXPSMC (env/gpio_env.sv,18|48): expecting a semicolon (';') [12.3.2(IEEE)].
+    super.new(name, parent);
+        |
+xmvlog: *E,EXPRPA (env/gpio_env.sv,19|8): expecting a right parenthesis (')') [A.2.6(IEEE)].
+  function void build_phase(uvm_phase phase);
+                                    |
+xmvlog: *E,SVNOTY (env/gpio_env.sv,22|36): Syntactically this identifier appears to begin a datatype but it does not refer to a visible datatype in the current scope.
+  function void connect_phase(uvm_phase phase);
+                                      |
+xmvlog: *E,SVNOTY (env/gpio_env.sv,37|38): Syntactically this identifier appears to begin a datatype but it does not refer to a visible datatype in the current scope.
+endclass
+       |
+xmvlog: *E,EXPENI (env/gpio_env.sv,47|7): expecting the keyword 'endinterface' [SystemVerilog].
+file: tb/gpio_tb_top.sv
+	interface worklib.tl_ul_if:sv
+		errors: 77, warnings: 8
+    `uvm_fatal("TB_TIMEOUT", "Simulation exceeded 2ms — check for hangs")
+                                                      |
+xmvlog: *W,NONPRT (tb/gpio_tb_top.sv,84|54): non-printable character (0xe2) ignored.
+    `uvm_fatal("TB_TIMEOUT", "Simulation exceeded 2ms — check for hangs")
+                                                       |
+xmvlog: *W,NONPRT (tb/gpio_tb_top.sv,84|55): non-printable character (0x80) ignored.
+    `uvm_fatal("TB_TIMEOUT", "Simulation exceeded 2ms — check for hangs")
+                                                        |
+xmvlog: *W,NONPRT (tb/gpio_tb_top.sv,84|56): non-printable character (0x94) ignored.
+	module worklib.gpio_tb_top:sv
+		errors: 0, warnings: 3
+	interface worklib.gpio_if:sv
+		errors: 0, warnings: 0
+	Total errors/warnings found outside modules and primitives:
+		errors: 48, warnings: 0
+xrun: *E,VLGERR: An error occurred during parsing.  Review the log file for errors with the code *E and fix those identified problems to proceed.  Exiting with code (status 1).
+TOOL:	xrun	23.09-s012: Exiting on Mar 31, 2026 at 23:36:42 EDT  (total: 00:00:02)
