@@ -4,6 +4,8 @@
 // analysis ports: ap_write (writes) and ap_read (reads).
 //=============================================================================
 `ifndef TL_UL_MONITOR_SV
+import uvm_pkg::*;
+`include "uvm_macros.svh"
 `define TL_UL_MONITOR_SV
 
 class tl_ul_monitor extends uvm_monitor;

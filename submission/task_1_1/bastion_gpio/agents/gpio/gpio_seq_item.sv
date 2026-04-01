@@ -4,6 +4,8 @@
 // and optionally specify how long to hold it.
 //=============================================================================
 `ifndef GPIO_SEQ_ITEM_SV
+import uvm_pkg::*;
+`include "uvm_macros.svh"
 `define GPIO_SEQ_ITEM_SV
 
 class gpio_seq_item extends uvm_sequence_item;

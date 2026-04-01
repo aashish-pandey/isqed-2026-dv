@@ -4,6 +4,8 @@
 // Fields match the flat signal interface used in the ISQED-2026 challenge.
 //=============================================================================
 `ifndef TL_UL_SEQ_ITEM_SV
+import uvm_pkg::*;
+`include "uvm_macros.svh"
 `define TL_UL_SEQ_ITEM_SV
 
 class tl_ul_seq_item extends uvm_sequence_item;

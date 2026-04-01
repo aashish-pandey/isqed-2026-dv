@@ -6,6 +6,8 @@
 // On every write to DATA_OUT/DIR, verifies gpio_o/gpio_oe_o output pins.
 //=============================================================================
 `ifndef GPIO_SCOREBOARD_SV
+import uvm_pkg::*;
+`include "uvm_macros.svh"
 `define GPIO_SCOREBOARD_SV
 
 class gpio_scoreboard extends uvm_scoreboard;

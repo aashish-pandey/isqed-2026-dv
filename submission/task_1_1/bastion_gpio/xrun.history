@@ -1,1 +1,0 @@
-s1(31Mar2026:23:36:40):  /opt/eda/cadence/XCELIUM2309/tools/xcelium/bin/xrun -sv -uvm -access +rwc -f filelist.f +UVM_TESTNAME=gpio_base_test 

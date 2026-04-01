@@ -5,6 +5,8 @@
 // masked write operations, and edge detection scenarios.
 //=============================================================================
 `ifndef GPIO_COVERAGE_SV
+import uvm_pkg::*;
+`include "uvm_macros.svh"
 `define GPIO_COVERAGE_SV
 
 class gpio_coverage extends uvm_subscriber #(tl_ul_seq_item);

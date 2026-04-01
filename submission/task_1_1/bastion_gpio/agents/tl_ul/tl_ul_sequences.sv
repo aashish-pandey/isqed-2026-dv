@@ -4,6 +4,8 @@
 // Provides: single write, single read, burst, and random sequences.
 //=============================================================================
 `ifndef TL_UL_SEQUENCES_SV
+import uvm_pkg::*;
+`include "uvm_macros.svh"
 `define TL_UL_SEQUENCES_SV
 
 //-----------------------------------------------------------------------------

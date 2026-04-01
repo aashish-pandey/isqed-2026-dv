@@ -2,6 +2,8 @@
 // gpio_sequences.sv — GPIO stimulus sequences
 //=============================================================================
 `ifndef GPIO_SEQUENCES_SV
+import uvm_pkg::*;
+`include "uvm_macros.svh"
 `define GPIO_SEQUENCES_SV
 
 //-----------------------------------------------------------------------------
@@ -103,6 +105,8 @@ endclass
 // gpio_agent.sv
 //=============================================================================
 `ifndef GPIO_AGENT_SV
+import uvm_pkg::*;
+`include "uvm_macros.svh"
 `define GPIO_AGENT_SV
 
 class gpio_agent extends uvm_agent;

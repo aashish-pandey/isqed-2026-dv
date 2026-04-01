@@ -5,6 +5,8 @@
 // for them to propagate through gpio_sync_q1 → gpio_sync_q2.
 //=============================================================================
 `ifndef GPIO_DRIVER_SV
+import uvm_pkg::*;
+`include "uvm_macros.svh"
 `define GPIO_DRIVER_SV
 
 class gpio_driver extends uvm_driver #(gpio_seq_item);

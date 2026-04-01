@@ -4,6 +4,8 @@
 // Instantiates TL-UL agent, GPIO agent, scoreboard, and coverage collector.
 //=============================================================================
 `ifndef GPIO_ENV_SV
+import uvm_pkg::*;
+`include "uvm_macros.svh"
 `define GPIO_ENV_SV
 
 class gpio_env extends uvm_env;

@@ -4,6 +4,8 @@
 // Reusable across all DUTs — port names are standardized in the challenge RTL.
 //=============================================================================
 `ifndef TL_UL_DRIVER_SV
+import uvm_pkg::*;
+`include "uvm_macros.svh"
 `define TL_UL_DRIVER_SV
 
 class tl_ul_driver extends uvm_driver #(tl_ul_seq_item);

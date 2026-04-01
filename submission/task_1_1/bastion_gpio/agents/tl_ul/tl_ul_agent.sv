@@ -4,6 +4,8 @@
 // Also contains the tl_ul_if interface definition.
 //=============================================================================
 `ifndef TL_UL_AGENT_SV
+import uvm_pkg::*;
+`include "uvm_macros.svh"
 `define TL_UL_AGENT_SV
 
 //-----------------------------------------------------------------------------

@@ -4,6 +4,8 @@
 // Publishes gpio_seq_item on ap_gpio when it detects a pin value change.
 //=============================================================================
 `ifndef GPIO_MONITOR_SV
+import uvm_pkg::*;
+`include "uvm_macros.svh"
 `define GPIO_MONITOR_SV
 
 class gpio_monitor extends uvm_monitor;
