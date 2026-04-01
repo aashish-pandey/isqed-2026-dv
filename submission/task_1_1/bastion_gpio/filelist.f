@@ -25,13 +25,14 @@ agents/tl_ul/tl_ul_sequencer.sv
 agents/tl_ul/tl_ul_driver.sv
 agents/tl_ul/tl_ul_monitor.sv
 agents/tl_ul/tl_ul_sequences.sv
-// agents/tl_ul/tl_ul_agent.sv
+agents/tl_ul/tl_ul_agent.sv
 
 // // ── GPIO protocol agent ───────────────────────────────────────────────────
-// agents/gpio/gpio_seq_item.sv
-// agents/gpio/gpio_driver.sv
-// agents/gpio/gpio_monitor.sv
-// agents/gpio/gpio_sequences.sv
+agents/gpio/gpio_if.sv
+agents/gpio/gpio_seq_item.sv
+agents/gpio/gpio_driver.sv
+agents/gpio/gpio_monitor.sv
+agents/gpio/gpio_sequences.sv
 
 // // ── Scoreboard ────────────────────────────────────────────────────────────
 // scoreboard/gpio_scoreboard.sv
