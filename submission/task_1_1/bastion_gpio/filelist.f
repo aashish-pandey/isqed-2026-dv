@@ -33,13 +33,14 @@ agents/gpio/gpio_seq_item.sv
 agents/gpio/gpio_driver.sv
 agents/gpio/gpio_monitor.sv
 agents/gpio/gpio_sequences.sv
+agents/gpio/gpio_agent.sv
 
 // // ── Scoreboard ────────────────────────────────────────────────────────────
 scoreboard/gpio_scoreboard.sv
 
 // // ── Environment ───────────────────────────────────────────────────────────
 env/gpio_coverage.sv
-// env/gpio_env.sv
+env/gpio_env.sv
 
 // // ── Testbench top (includes gpio_if interface definition) ─────────────────
 // tb/gpio_tb_top.sv
