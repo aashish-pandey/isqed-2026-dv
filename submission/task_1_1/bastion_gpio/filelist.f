@@ -15,8 +15,8 @@
 +define+PROJ_ROOT=../../../..
 
 // ── DUT sources ───────────────────────────────────────────────────────────
-../../../../duts/common/dv_common_pkg.sv
-../../../../duts/bastion_gpio/bastion_gpio.sv
+../../../duts/common/dv_common_pkg.sv
+../../../duts/bastion_gpio/bastion_gpio.sv
 
 // ── TL-UL agent ───────────────────────────────────────────────────────────
 agents/tl_ul/tl_ul_seq_item.sv
