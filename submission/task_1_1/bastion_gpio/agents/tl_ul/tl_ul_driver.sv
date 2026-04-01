@@ -1,21 +1,10 @@
-//=============================================================================
-// tl_ul_driver.sv
-// Drives flat TL-UL signals. Handles ready/valid handshake on both channels.
-// Reusable across all DUTs — port names are standardized in the challenge RTL.
-//=============================================================================
-`ifndef TL_UL_DRIVER_SV
 import uvm_pkg::*;
 `include "uvm_macros.svh"
-`define TL_UL_DRIVER_SV
 
 class tl_ul_driver extends uvm_driver #(tl_ul_seq_item);
   `uvm_component_utils(tl_ul_driver)
 
-  // Virtual interface handle — set via config_db in tb_top
-  virtual interface tl_ul_if vif;
-
-  // Max cycles to wait for a_ready or d_valid before flagging a timeout
-  localparam int HANDSHAKE_TIMEOUT = 1000;
+  virtual tl_ul_if vif;
 
   function new(string name, uvm_component parent);
     super.new(name, parent);
@@ -24,89 +13,56 @@ class tl_ul_driver extends uvm_driver #(tl_ul_seq_item);
   function void build_phase(uvm_phase phase);
     super.build_phase(phase);
     if (!uvm_config_db #(virtual tl_ul_if)::get(this, "", "tl_vif", vif))
-      `uvm_fatal("NO_VIF", {"tl_ul_driver: tl_vif not found in config_db for ", get_full_name()})
+      `uvm_fatal("NO_VIF", "tl_ul_driver: tl_vif not found in config_db")
   endfunction
 
   task run_phase(uvm_phase phase);
+    tl_ul_seq_item req;
     idle_bus();
-    // Wait for reset to deassert
     @(posedge vif.rst_n);
     repeat(2) @(posedge vif.clk);
-
     forever begin
-      tl_ul_seq_item req, rsp;
       seq_item_port.get_next_item(req);
-
-      // Optional idle delay before driving
-      repeat(req.delay) @(posedge vif.clk);
-
-      drive_transaction(req, rsp);
-      seq_item_port.item_done(rsp);
+      drive_item(req);
+      seq_item_port.item_done();
     end
   endtask
 
-  // Drive one complete TL-UL transaction (A-channel then D-channel)
-  task drive_transaction(tl_ul_seq_item req, output tl_ul_seq_item rsp);
-    int timeout;
-
-    rsp = tl_ul_seq_item::type_id::create("rsp");
-    rsp.copy(req);
-
-    // ── Drive Channel A ────────────────────────────────────────────────────
-    vif.a_valid   <= 1'b1;
+  task drive_item(tl_ul_seq_item req);
+    // Drive Channel A
+    @(posedge vif.clk);
+    vif.a_valid   <= 1;
     vif.a_opcode  <= req.opcode;
     vif.a_address <= req.addr;
     vif.a_data    <= req.data;
     vif.a_mask    <= req.mask;
     vif.a_source  <= req.source;
     vif.a_size    <= req.size;
-    vif.d_ready   <= 1'b1;
-
-    // Hold A-channel until a_ready (TL-UL rule: stable while valid && !ready)
-    timeout = 0;
+    vif.d_ready   <= 1;
+    // Hold until a_ready
+    while (!vif.a_ready) @(posedge vif.clk);
+    // Deassert valid
     @(posedge vif.clk);
-    while (!vif.a_ready) begin
-      timeout++;
-      if (timeout > HANDSHAKE_TIMEOUT)
-        `uvm_fatal("TL_A_TIMEOUT",
-          $sformatf("a_ready not seen within %0d cycles, addr=0x%08h", HANDSHAKE_TIMEOUT, req.addr))
-      @(posedge vif.clk);
-    end
-
-    // Handshake complete — deassert valid
-    vif.a_valid <= 1'b0;
-
-    // ── Collect Channel D ──────────────────────────────────────────────────
-    timeout = 0;
-    while (!vif.d_valid) begin
-      timeout++;
-      if (timeout > HANDSHAKE_TIMEOUT)
-        `uvm_fatal("TL_D_TIMEOUT",
-          $sformatf("d_valid not seen within %0d cycles, addr=0x%08h", HANDSHAKE_TIMEOUT, req.addr))
-      @(posedge vif.clk);
-    end
-
-    // Latch response fields into rsp
-    rsp.rdata = vif.d_data;
-    rsp.error = vif.d_error;
-
+    vif.a_valid <= 0;
+    // Wait for d_valid
+    while (!vif.d_valid) @(posedge vif.clk);
+    // Latch response
+    req.rdata = vif.d_data;
+    req.error = vif.d_error;
     @(posedge vif.clk);
-    vif.d_ready <= 1'b0;
-
+    vif.d_ready <= 0;
     idle_bus();
   endtask
 
   task idle_bus();
-    vif.a_valid   <= 1'b0;
-    vif.a_opcode  <= 3'b0;
-    vif.a_address <= 32'b0;
-    vif.a_data    <= 32'b0;
+    vif.a_valid   <= 0;
+    vif.a_opcode  <= 0;
+    vif.a_address <= 0;
+    vif.a_data    <= 0;
     vif.a_mask    <= 4'hF;
-    vif.a_source  <= 8'b0;
+    vif.a_source  <= 0;
     vif.a_size    <= 2'b10;
-    vif.d_ready   <= 1'b0;
+    vif.d_ready   <= 0;
   endtask
 
 endclass
-
-`endif // TL_UL_DRIVER_SV
