@@ -42,5 +42,5 @@ scoreboard/gpio_scoreboard.sv
 env/gpio_coverage.sv
 env/gpio_env.sv
 
-// // ── Testbench top (includes gpio_if interface definition) ─────────────────
-// tb/gpio_tb_top.sv
+// // ── Testbench top ─────────────────
+tb/gpio_tb_top.sv
