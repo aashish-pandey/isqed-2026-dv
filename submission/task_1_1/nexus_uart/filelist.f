@@ -36,11 +36,11 @@ agents/uart/uart_sequences.sv
 agents/uart/uart_agent.sv
 
 // // // ── Scoreboard ────────────────────────────────────────────────────────────
-// scoreboard/uart_scoreboard.sv
+scoreboard/uart_scoreboard.sv
 
 // // // ── Environment ───────────────────────────────────────────────────────────
-// env/uart_coverage.sv
-// env/uart_env.sv
+env/uart_coverage.sv
+env/uart_env.sv
 
 // // // ── Testbench top ─────────────────
 // tb/uart_base_test.sv
