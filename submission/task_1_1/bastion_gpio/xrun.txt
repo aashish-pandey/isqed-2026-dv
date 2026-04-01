@@ -1,5 +1,5 @@
 xrun: 23.09-s012: (c) Copyright 1995-2024 Cadence Design Systems, Inc.
-TOOL:	xrun	23.09-s012: Started on Apr 01, 2026 at 12:02:55 EDT
+TOOL:	xrun	23.09-s012: Started on Apr 01, 2026 at 12:05:15 EDT
 /opt/eda/cadence/XCELIUM2309/tools/xcelium/bin/xrun
 	-sv
 	-uvm
@@ -24,8 +24,69 @@ TOOL:	xrun	23.09-s012: Started on Apr 01, 2026 at 12:02:55 EDT
 		scoreboard/gpio_scoreboard.sv
 		env/gpio_coverage.sv
 		env/gpio_env.sv
+		tb/gpio_base_test.sv
 		tb/gpio_tb_top.sv
 	+UVM_TESTNAME=gpio_base_test
+file: ../../../duts/bastion_gpio/bastion_gpio.sv
+	module worklib.bastion_gpio:sv
+		errors: 0, warnings: 0
+file: agents/tl_ul/tl_ul_if.sv
+	interface worklib.tl_ul_if:sv
+		errors: 0, warnings: 0
+file: agents/gpio/gpio_if.sv
+	interface worklib.gpio_if:sv
+		errors: 0, warnings: 0
+file: tb/gpio_base_test.sv
+file: tb/gpio_tb_top.sv
+	module worklib.gpio_tb_top:sv
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		uvm_pkg
+		cdns_uvmapi
+		cdns_assert2uvm_pkg
+		cdns_uvm_pkg
+		$unit_0x400d9029
+		dv_common_pkg
+		gpio_tb_top
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.bastion_gpio:sv <0x3fa913e2>
+			streams:  36, words: 15431
+		worklib.gpio_if:sv <0x6dd8a446>
+			streams: 1201, words: 1078152
+		worklib.cdns_uvm_pkg:sv <0x170fd3f0>
+			streams: 172, words: 230983
+		worklib.cdns_uvmapi:svp <0x6e1bb35f>
+			streams:  27, words: 25419
+		worklib.cdns_assert2uvm_pkg:sv <0x1da5267a>
+			streams:   3, words:  1330
+		worklib.uvm_pkg:sv <0x7cfaa490>
+			streams: 4535, words: 5795094
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                       Instances  Unique
+		Modules:                       2       2
+		Interfaces:                    2       2
+		Verilog packages:              5       5
+		Registers:                 15244   10518
+		Scalar wires:                 17       -
+		Vectored wires:               19       -
+		Named events:                  4      12
+		Always blocks:                24      24
+		Initial blocks:              328     170
+		Parallel blocks:              27      28
+		Cont. assignments:             1       1
+		Pseudo assignments:           21       -
+		Assertions:                    2       2
+		Covergroup Instances:          0       5
+		Compilation units:             1       1
+		SV Class declarations:       213     326
+		SV Class specializations:    433     433
+		Process Clocks:                6       1
+	Writing initial simulation snapshot: worklib.gpio_tb_top:sv
 Loading snapshot worklib.gpio_tb_top:sv .................... Done
 SVSEED default: 1
 xcelium> source /opt/eda/cadence/XCELIUM2309/tools/xcelium/files/xmsimrc
@@ -51,8 +112,19 @@ CDNS-UVM-1.1d (23.09-s012)
 
       (Specify +UVM_NO_RELNOTES to turn off this notice)
 
-UVM_WARNING @ 0: reporter [BDTYP] Cannot create a component of type 'gpio_base_test' because it is not registered with the factory.
-UVM_FATAL @ 0: reporter [INVTST] Requested test from command line +UVM_TESTNAME=gpio_base_test not found.
+UVM_INFO @ 0: reporter [RNTST] Running test gpio_base_test...
+UVM_WARNING @ 0: uvm_test_top.env.m_tl_agent.sequencer@@tl_seq [uvm_sequence_base] Body definition undefined
+UVM_WARNING @ 0: uvm_test_top.env.m_tl_agent.sequencer@@s [uvm_sequence_base] Body definition undefined
+UVM_INFO tb/gpio_base_test.sv(56) @ 235: uvm_test_top [TEST] DATA_OUT readback=0xa5a5a5a5
+UVM_ERROR scoreboard/gpio_scoreboard.sv(99) @ 585: uvm_test_top.env.m_scoreboard [SB_MISMATCH] READ addr=0x0000000c DUT=0xffffffff EXP=0x00000000
+UVM_INFO tb/gpio_base_test.sv(76) @ 595: uvm_test_top [TEST] INTR_STATE=0xffffffff
+UVM_INFO tb/gpio_base_test.sv(86) @ 675: uvm_test_top [TEST] DATA_OUT after masked write=0xa5a500a5
+UVM_INFO tb/gpio_base_test.sv(96) @ 755: uvm_test_top [TEST] DATA_OUT after upper masked write=0x00a500a5
+UVM_ERROR scoreboard/gpio_scoreboard.sv(99) @ 945: uvm_test_top.env.m_scoreboard [SB_MISMATCH] READ addr=0x0000000c DUT=0xdeadbeff EXP=0xdeadbeef
+UVM_INFO tb/gpio_base_test.sv(121) @ 955: uvm_test_top [TEST] INTR_STATE after test=0xdeadbeff
+UVM_INFO /opt/eda/cadence/XCELIUM2309/tools/methodology/UVM/CDNS-1.1d/sv/src/base/uvm_objection.svh(1268) @ 955: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+UVM_INFO scoreboard/gpio_scoreboard.sv(108) @ 955: uvm_test_top.env.m_scoreboard [SB] Scoreboard: 3 passed, 2 failed
+UVM_ERROR scoreboard/gpio_scoreboard.sv(110) @ 955: uvm_test_top.env.m_scoreboard [SB_FAIL] Scoreboard detected mismatches
 
 --- UVM Report catcher Summary ---
 
@@ -67,14 +139,19 @@ Number of caught UVM_WARNING reports :    0
 --- UVM Report Summary ---
 
 ** Report counts by severity
-UVM_INFO :    0
-UVM_WARNING :    1
-UVM_ERROR :    0
-UVM_FATAL :    1
+UVM_INFO :    8
+UVM_WARNING :    2
+UVM_ERROR :    3
+UVM_FATAL :    0
 ** Report counts by id
-[BDTYP]     1
-[INVTST]     1
-Simulation complete via $finish(1) at time 0 FS + 0
-/opt/eda/cadence/XCELIUM2309/tools/methodology/UVM/CDNS-1.1d/sv/src/base/uvm_report_object.svh:292     $finish;
+[RNTST]     1
+[SB]     1
+[SB_FAIL]     1
+[SB_MISMATCH]     2
+[TEST]     5
+[TEST_DONE]     1
+[uvm_sequence_base]     2
+Simulation complete via $finish(1) at time 955 NS + 51
+/opt/eda/cadence/XCELIUM2309/tools/methodology/UVM/CDNS-1.1d/sv/src/base/uvm_root.svh:457     $finish;
 xcelium> exit
-TOOL:	xrun	23.09-s012: Exiting on Apr 01, 2026 at 12:02:56 EDT  (total: 00:00:01)
+TOOL:	xrun	23.09-s012: Exiting on Apr 01, 2026 at 12:05:21 EDT  (total: 00:00:06)
