@@ -1,0 +1,81 @@
+xrun: 23.09-s012: (c) Copyright 1995-2024 Cadence Design Systems, Inc.
+TOOL:	xrun	23.09-s012: Started on Apr 01, 2026 at 12:40:55 EDT
+/opt/eda/cadence/XCELIUM2309/tools/xcelium/bin/xrun
+	-sv
+	-uvm
+	-c
+	-f filelist.f
+		+define+PROJ_ROOT=../../../..
+		../../../duts/common/dv_common_pkg.sv
+		../../../duts/nexus_uart/nexus_uart.sv
+		agents/tl_ul/tl_ul_if.sv
+		agents/tl_ul/tl_ul_seq_item.sv
+		agents/tl_ul/tl_ul_sequencer.sv
+		agents/tl_ul/tl_ul_driver.sv
+		agents/tl_ul/tl_ul_monitor.sv
+		agents/tl_ul/tl_ul_sequences.sv
+		agents/tl_ul/tl_ul_agent.sv
+		agents/uart/uart_if.sv
+		agents/uart/uart_seq_item.sv
+		agents/uart/uart_driver.sv
+		agents/uart/uart_monitor.sv
+		agents/uart/uart_sequences.sv
+		agents/uart/uart_agent.sv
+		scoreboard/uart_scoreboard.sv
+		env/uart_coverage.sv
+		env/uart_env.sv
+		tb/uart_base_test.sv
+		tb/uart_tb_top.sv
+Recompiling... reason: file './tb/uart_base_test.sv' is newer than expected.
+	expected: Wed Apr  1 12:39:00 2026
+	actual:   Wed Apr  1 12:40:45 2026
+Compiling UVM packages (uvm_pkg.sv cdns_uvm_pkg.sv) using uvmhome location /opt/eda/cadence/XCELIUM2309/tools/methodology/UVM/CDNS-1.1d
+file: tb/uart_base_test.sv
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		uvm_pkg
+		cdns_uvmapi
+		cdns_assert2uvm_pkg
+		cdns_uvm_pkg
+		$unit_0x360d489d
+		dv_common_pkg
+		uart_tb_top
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.nexus_uart:sv <0x7aaa78d2>
+			streams:  81, words: 33142
+		worklib.uart_if:sv <0x162e4497>
+			streams: 1242, words: 1053968
+		worklib.cdns_uvm_pkg:sv <0x44c66c00>
+			streams: 172, words: 206323
+		worklib.cdns_uvmapi:svp <0x5940119d>
+			streams:  27, words: 23987
+		worklib.cdns_assert2uvm_pkg:sv <0x452de3f7>
+			streams:   3, words:  1243
+		worklib.uvm_pkg:sv <0x7d8ab5ae>
+			streams: 4535, words: 5504588
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                       Instances  Unique
+		Modules:                       2       2
+		Interfaces:                    2       2
+		Verilog packages:              5       5
+		Registers:                 15209   10592
+		Scalar wires:                 21       -
+		Vectored wires:               12       -
+		Named events:                  4      12
+		Always blocks:                31      31
+		Initial blocks:              334     172
+		Parallel blocks:              26      27
+		Cont. assignments:             3       4
+		Pseudo assignments:           14       -
+		Assertions:                    2       2
+		Covergroup Instances:          0       5
+		Compilation units:             1       1
+		SV Class declarations:       215     328
+		SV Class specializations:    437     437
+		Process Clocks:               13       1
+	Writing initial simulation snapshot: worklib.uart_tb_top:sv
+TOOL:	xrun	23.09-s012: Exiting on Apr 01, 2026 at 12:41:01 EDT  (total: 00:00:06)
