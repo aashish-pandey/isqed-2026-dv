@@ -8,13 +8,15 @@ class uart_monitor extends uvm_monitor;
 
   uvm_analysis_port #(uart_seq_item) ap_uart;
 
-  // Configuration — must be set before run_phase
-  bit [15:0] baud_div    = 8;
-  bit [1:0]  parity_mode = 0;
-  bit        stop_bits   = 0;
+  bit [15:0] baud_div;
+  bit [1:0]  parity_mode;
+  bit        stop_bits;
 
   function new(string name, uvm_component parent);
     super.new(name, parent);
+    baud_div    = 8;
+    parity_mode = 0;
+    stop_bits   = 0;
   endfunction
 
   function void build_phase(uvm_phase phase);
@@ -34,14 +36,13 @@ class uart_monitor extends uvm_monitor;
     uart_seq_item obs;
     bit [7:0] rx_data;
     bit parity_bit;
-    bit parity_exp;
     int bit_period;
     int half_period;
 
-    bit_period  = baud_div + 1;
+    bit_period  = int'(baud_div) + 1;
     half_period = bit_period / 2;
 
-    // Wait for start bit — falling edge on uart_tx_o
+    // Wait for start bit
     do @(posedge vif.clk);
     while (vif.uart_tx_o !== 0);
 
@@ -51,7 +52,7 @@ class uart_monitor extends uvm_monitor;
     // Verify still low
     if (vif.uart_tx_o !== 0) return;
 
-    // Sample 8 data bits at mid-point of each bit
+    // Sample 8 data bits
     for (int i = 0; i < 8; i++) begin
       repeat(bit_period) @(posedge vif.clk);
       rx_data[i] = vif.uart_tx_o;
@@ -66,12 +67,11 @@ class uart_monitor extends uvm_monitor;
     // Sample stop bit
     repeat(bit_period) @(posedge vif.clk);
 
-    // Publish transaction
-    obs              = uart_seq_item::type_id::create("obs");
-    obs.data         = rx_data;
-    obs.baud_div     = baud_div;
-    obs.parity_mode  = parity_mode;
-    obs.stop_bits    = stop_bits;
+    obs             = uart_seq_item::type_id::create("obs");
+    obs.data        = rx_data;
+    obs.baud_div    = baud_div;
+    obs.parity_mode = parity_mode;
+    obs.stop_bits   = stop_bits;
     ap_uart.write(obs);
 
     `uvm_info("UART_MON", $sformatf("Observed TX frame: 0x%02h", rx_data), UVM_MEDIUM)
