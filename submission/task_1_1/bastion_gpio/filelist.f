@@ -43,4 +43,5 @@ env/gpio_coverage.sv
 env/gpio_env.sv
 
 // // ── Testbench top ─────────────────
+tb/gpio_base_test.sv
 tb/gpio_tb_top.sv
